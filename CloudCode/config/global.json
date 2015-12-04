@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.0"
+  },
+  "applications": {
+    "Campus-Lancer": {
+      "applicationId": "54PvI9Cgwvy1kFuuTYYGccYGG8xgdFYkByDB4Yb8",
+      "masterKey": "jJqoPpBc0sKaTYAFIIYkDZUD3llF2YrL8lYWiwz9"
+    },
+    "_default": {
+      "link": "Campus-Lancer"
+    }
+  }
+}

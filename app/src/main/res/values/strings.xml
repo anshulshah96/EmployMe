@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Campus Lancer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_signup">Signup for a new account</string>
+    <string name="title_activity_post">Set this as per your wish</string>
+
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="Enrollment">Mobile No.</string>
+    <string name="Email">Email ID</string>
+    <string name="LoginBtn">Login</string>
+    <string name="SignupBtn">Sign Up</string>
+    <string name="LogoutBtn">Log Out</string>
+
+    <string name="Welcome">Welcome to Campus Lancer! It is a platform for people who need to get their work, and people work and earn.</string>
+    <string name="HireWelcome">HIRE</string>
+    <string name="WorkWelcome">WORK</string>
+
+    <string name="SignUpBoost">Don\'t have an account? Sign Up for free!</string>
+    <string name="forgotPassword"><u>Forgot Password?</u></string>
+    <string name="Heading">Campus Lancer</string>
+    <string name="ProjectListHeading">Active Projects</string>
+    <string name="SignUpDescription">Sign Up as a New User for free!</string>
+    <string name="ForgotPassword">Enter your E-Mail, to receive a mail from us, having a link which will allow your to reset your password.</string>
+    <string name="ResetPassword">Reset Password</string>
+    <string name="GoToMainPage">Go to main page ></string>
+
+    <!-- Post Project for Hire Strings -->
+    <string name="HireInfo">Post your project by filling out the information regarding the work you need to be done.</string>
+    <string name="HireTopic">Topic:</string>
+    <string name="HireDescription">Description:</string>
+    <string name="HireInitialBid">Budget:</string>
+    <string name="HirePost">POST</string>
+
+    <!-- Work Description Page Strings -->
+    <string name="WorkDescriptionTopic">Topic</string>
+    <string name="WorkDescriptionDescription">Description</string>
+    <string name="WorkDescriptionUserName">Employer</string>
+    <string name="WorkDescriptionMobileNumber">Mobile Number</string>
+    <string name="WorkDescriptionBid">BID</string>
+    <string name="WorkDescriptionDummy">Dummy Text</string>
+
+    <!--Get Started for Hiring Strings -->
+    <string name="HireGetStarted">Get your job done efficiently and at the best prize! How this works:</string>
+    <string name="HireNewProject">Post New Project</string>
+    <string name="HireExistingProject">View Existing Projects</string>
+    <string name="HireText1">1. Post your required project and its details.</string>
+    <string name="HireText2">2. Choose bidders and compare prices.</string>
+    <string name="HireText3">3. Get to contact and pay once satisfied.</string>
+
+    <!-- Get Started For Work Strings -->
+    <string name="WorkGetStarted">Earn money by doing what suits you best! How this works:</string>
+    <string name="WorkText1">1. Lookout for projects matching your skill-set.</string>
+    <string name="WorkText2">2. Apply for work by putting up the best bid.</string>
+    <string name="WorkText3">3. Start work and get paid on completion.</string>
+    <string name="SelectCategory">Select project category:</string>
+    <string name="BrowseProjects">Browse Projects</string>
+
+    <string name="ExistingProjects">Existing Projects</string>
+    <string name="Bidders">Bidders for your project:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_work">Hello Activity</string>
+    <string name="title_activity_hire_started">HireStarted</string>
+    <string name="title_activity_view_existing_projects">ViewExistingProjects</string>
+    <string name="title_activity_forgetpassword">forgetpassword</string>
+    <string name="title_activity_people_for_project">PeopleForProject</string>
+    <string name="title_activity_custom_progress_dialog_box">CustomProgressDialogBox</string>
+    <string name="title_activity_work_started">WorkStarted</string>
+</resources>

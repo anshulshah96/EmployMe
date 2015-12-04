@@ -1,0 +1,190 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aka.campuslancer.WorkActivity">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aka.campuslancer.WorkDescriptionFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundmain"
+        android:alpha="0.6" />
+
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="#4444ff"
+
+        android:paddingLeft="100dip"
+        android:paddingTop="25dip"
+        android:text="@string/Heading"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"/>
+
+    <ImageView
+        android:id="@+id/MainLogo"
+        android:background="@drawable/mainlogo"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"/>
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/WorkDescriptionTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/MainLogo"
+        android:background="#55FFFFFF"
+
+        android:layout_margin="10dip"
+
+        android:text="@string/WorkDescriptionTopic"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/WorkDescriptionStaticDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WorkDescriptionTopic"
+
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/WorkDescriptionDescription"
+        android:textSize="20sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/WorkDescriptionFragmentDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WorkDescriptionStaticDescription"
+        android:background="#55FFFFFF"
+
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/WorkDescriptionDummy"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="20sp"
+        android:textColor="#222222" />
+
+    <TextView
+        android:id="@+id/WorkDescriptionStaticUsername"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WorkDescriptionFragmentDescription"
+
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/WorkDescriptionUserName"
+        android:textSize="20sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/WorkDescriptionFragmentUsername"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WorkDescriptionStaticUsername"
+        android:background="#55FFFFFF"
+
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/WorkDescriptionDummy"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20sp"
+        android:textColor="#222222" />
+
+    <TextView
+        android:id="@+id/WorkDescriptionStaticMobileNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WorkDescriptionFragmentUsername"
+
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/WorkDescriptionMobileNumber"
+        android:textSize="20sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/WorkDescriptionFragmentMobileNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WorkDescriptionStaticMobileNumber"
+        android:background="#55FFFFFF"
+
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/WorkDescriptionDummy"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="20sp"
+        android:textColor="#222222" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WorkDescriptionFragmentMobileNumber"
+        android:layout_marginTop="20dip">
+
+        <EditText
+            android:id="@+id/BidValue"
+            android:layout_width="240dip"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+
+            android:inputType="phone"
+            android:textSize="25sp"
+            android:background="#DDDDDD" />
+
+        <Button
+            android:id="@+id/bidButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/WorkDescriptionBid"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:background="#F8650D"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/work_fragment_tv_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dip"
+        android:text="@string/GoToMainPage"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="#BB000000"
+        android:clickable="true"
+        android:textSize="14sp"
+        android:onClick="navigationClick"/>
+    </RelativeLayout>
+</FrameLayout>

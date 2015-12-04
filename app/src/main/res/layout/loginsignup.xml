@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundmain"
+        android:alpha="0.6" />
+
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:background="#4444ff"
+
+        android:paddingLeft="120dp"
+        android:paddingTop="35dp"
+        android:text="@string/Heading"
+        android:textSize="35sp"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/MainLogo"
+        android:background="@drawable/mainlogo"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip" />
+
+    <TextView
+        android:id="@+id/txtusername"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/MainLogo"
+        android:paddingTop="20dip"
+
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/Username"
+        android:textSize="20sp"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtusername"
+        android:padding="5sp"
+
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:inputType="text"
+        android:textSize="25sp"
+        android:background="#DDDDDD"/>
+
+    <TextView
+        android:id="@+id/txtpassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:paddingTop="10dip"
+
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:text="@string/Password"
+        android:textSize="20sp"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtpassword"
+        android:padding="5sp"
+
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:inputType="textPassword"
+        android:textSize="25sp"
+        android:background="#DDDDDD"/>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+
+        android:layout_marginLeft="80dip"
+        android:layout_marginRight="80dip"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="5dip"
+
+        android:text="@string/LoginBtn"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="#F8650D"/>
+
+    <TextView
+        android:id="@+id/SignUpBoost"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+
+        android:layout_marginLeft="55dip"
+        android:layout_marginRight="55dip"
+
+        android:text="@string/SignUpBoost"
+        android:textSize="15sp"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SignUpBoost"
+        android:text="@string/SignupBtn"
+        android:onClick="SignUp"
+
+        android:layout_marginLeft="80dip"
+        android:layout_marginRight="80dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="10dip"
+
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="#F8650D" />
+
+    <TextView
+        android:id="@+id/reset_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup"
+
+        android:layout_centerInParent="true"
+        android:text="@string/forgotPassword"
+
+        android:clickable="true"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:textColorHighlight="#0000ff" />
+
+</RelativeLayout>

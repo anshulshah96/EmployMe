@@ -1,0 +1,79 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aka.campuslancer.HireStarted">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.aka.campuslancer.WorkActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/backgroundmain"
+            android:alpha="0.6" />
+
+        <TextView
+            android:id="@+id/Header"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#1761ef"
+
+            android:paddingLeft="100dp"
+            android:paddingTop="25dp"
+            android:text="@string/Heading"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"/>
+
+        <ImageView
+            android:id="@+id/MainLogo"
+            android:background="@drawable/mainlogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/ProjectListHeading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/MainLogo"
+            android:paddingTop="5dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:text="@string/Bidders"
+            android:textSize="22sp"
+            android:textColor="#000000"/>
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/peopleproject_listview"
+            android:layout_below="@id/ProjectListHeading"
+            android:layout_margin="10dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/peopleproject_tv_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dip"
+            android:text="@string/GoToMainPage"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="#BB000000"
+            android:clickable="true"
+            android:textSize="14sp"
+            android:onClick="navigationClick"/>
+    </RelativeLayout>
+</FrameLayout>

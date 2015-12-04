@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="85dip"
+
+    android:background="@drawable/custom_gradient"
+    android:padding="10dp"
+    android:layout_margin="15dp"
+
+    android:clickable="false"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false" >
+
+
+    <TextView
+        android:id="@+id/peopleproject_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+
+        android:text="@string/Username"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />
+
+    <ImageView
+        android:id="@+id/callme"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/callme"
+        android:layout_below="@id/peopleproject_user"
+
+        android:layout_marginRight="5dip"/>
+
+    <TextView
+        android:id="@+id/peopleproject_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/peopleproject_user"
+        android:layout_toRightOf="@id/callme"
+
+        android:layout_marginLeft="3dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="3dip"
+
+        android:text="@string/WorkDescriptionMobileNumber"
+        android:textSize="14sp"
+        android:textColor="#000000"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />
+
+
+    <TextView
+        android:id="@+id/bid_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/callme"
+
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="3dip"
+        android:text="Bid: Rs."
+
+        android:textSize="16sp"
+        android:textColor="#AA000000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />
+
+
+    <!--<TextView
+        android:id="@+id/peopleproject_bid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/just_bid"
+        android:layout_below="@id/peopleproject_mobile"
+
+        android:layout_marginTop="3dip"
+        android:layout_marginLeft="5dip"
+
+        android:text="@string/WorkDescriptionBid"
+        android:textSize="16sp"
+        android:textColor="#AA000000"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/peopleproject_description"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/peopleproject_id"
+        />
+</RelativeLayout>

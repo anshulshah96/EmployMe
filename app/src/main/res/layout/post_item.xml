@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="90dip"
+
+    android:background="@drawable/custom_gradient"
+    android:padding="10dp"
+    android:layout_margin="15dp"
+
+    android:clickable="false"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false" >
+
+    <TextView
+        android:id="@+id/post_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="5dip"
+
+        android:text="@string/WorkDescriptionTopic"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />
+
+    <TextView
+        android:id="@+id/post_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_below="@id/post_topic"
+        android:text="@string/WorkDescriptionDummy"
+
+        android:textSize="16sp"
+        android:textColor="#222222"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />
+
+
+
+    <TextView
+        android:id="@+id/post_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginRight="5dip"
+        android:layout_alignParentRight="true"
+
+        android:text="@string/WorkDescriptionMobileNumber"
+        android:textSize="16sp"
+        android:textColor="#222222"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />
+
+    <ImageView
+        android:id="@+id/callme"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/callme"
+        android:layout_toLeftOf="@id/post_mobile"
+
+        android:layout_marginRight="5dip"/>
+
+    <TextView
+        android:id="@+id/post_budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/post_username"
+
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="3dip"
+        android:text="Budget: Rs."
+
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false" />
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/post_budget"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toRightOf="@id/just_budget"-->
+        <!--android:layout_below="@id/post_mobile"-->
+
+        <!--android:layout_marginTop="3dip"-->
+        <!--android:layout_marginLeft="5dip"-->
+
+        <!--android:text="BUDGET"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textColor="#333333"-->
+        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+
+        <!--android:focusable="false"-->
+        <!--android:focusableInTouchMode="false"-->
+        <!--android:clickable="false" />-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/post_description"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/post_project_id"
+        />
+
+</RelativeLayout>
