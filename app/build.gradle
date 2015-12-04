@@ -24,12 +24,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.parse.bolts:bolts-android:1.1.4'
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
-    compile files('/home/anshul/AndroidStudioProjects/CampusLancer/libs/bolts-android-1.1.4.jar')
-    compile files('/home/anshul/AndroidStudioProjects/CampusLancer/libs/Parse-1.8.3.jar')
-    compile files('/home/anshul/AndroidStudioProjects/CampusLancer/bolts-android-1.1.4.jar')
-    compile files('/home/anshul/AndroidStudioProjects/CampusLancer/Parse-1.8.3.jar')
-    compile files('/home/karandesai_96/Documents/CampusLancer/libs/bolts-android-1.1.4.jar')
-    compile files('/home/karandesai_96/Documents/CampusLancer/libs/Parse-1.8.3.jar')
+    compile files('/home/manthan/EmployMe/libs/bolts-android-1.1.4.jar')
+    compile files('/home/manthan/EmployMe/libs/Parse-1.8.3.jar')
+    compile files('/home/manthan/EmployMe/libs/bolts-android-1.1.4.jar')
+    compile files('/home/manthan/EmployMe/libs/Parse-1.8.3.jar')
+    compile files('/home/manthan/EmployMe/libs/bolts-android-1.1.4.jar')
+    compile files('/home/manthan/EmployMe/libs/Parse-1.8.3.jar')
 }
 dependencies {
 //    compile 'com.parse.bolts:bolts-android:1.+'

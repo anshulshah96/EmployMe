@@ -71,4 +71,5 @@
     <string name="title_activity_people_for_project">PeopleForProject</string>
     <string name="title_activity_custom_progress_dialog_box">CustomProgressDialogBox</string>
     <string name="title_activity_work_started">WorkStarted</string>
+    <string name="title_activity_parse_application">ParseApplication</string>
 </resources>

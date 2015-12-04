@@ -39,4 +39,4 @@ proguard/
 .idea/
 screenshots/
 #Parse Keys
-/app/src/main/java/com/aka/campuslancer/Keys.java
+/app/src/main/java/com/aka/campuslancer/ParseApplication.java
