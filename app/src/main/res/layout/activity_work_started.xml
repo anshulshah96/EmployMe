@@ -3,13 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aka.campuslancer.HireStarted">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgroundmain"
-        android:alpha="0.6" />
+    tools:context="com.aka.campuslancer.HireStarted"
+    android:background="@drawable/backgroundmain">
 
     <TextView
         android:id="@+id/Header"
@@ -47,162 +42,123 @@
         android:textColor="#222222" />
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/WorkNewProjects"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="280dip"
-        android:layout_below="@id/WorkGetStarted"
-        android:layout_marginBottom="10dip"
-        android:orientation="horizontal"
-
-        tools:context="com.aka.campuslancer.HireStarted">
+        android:layout_height="wrap_content"
+        android:id="@+id/WorkNewProjects"
+        android:layout_below="@+id/WorkGetStarted">
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:orientation="vertical"
-
-            tools:context="com.aka.campuslancer.HireStarted">
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="0.7"
-                android:layout_margin="5dip"
-                android:src="@drawable/projects" />
+                android:layout_height="match_parent"
+                android:src="@drawable/projects"
+                android:layout_weight="0.33" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/apply"
+                android:layout_gravity="top"
+                android:layout_weight="0.33" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/money"
+                android:layout_gravity="top"
+                android:layout_weight="0.33" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/WorkText1"
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="0.4"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
                 android:background="#55FFFFFF"
-
-                android:layout_marginLeft="10dip"
-                android:layout_marginRight="10dip"
 
                 android:text="@string/WorkText1"
                 android:textSize="18sp"
-                android:textColor="#222222" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:orientation="vertical"
-
-            tools:context="com.aka.campuslancer.HireStarted">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="0.7"
-                android:layout_margin="5dip"
-                android:src="@drawable/apply" />
+                android:textColor="#222222"
+                android:layout_gravity="bottom" />
 
             <TextView
                 android:id="@+id/WorkText2"
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="0.4"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
                 android:background="#55FFFFFF"
 
-                android:layout_marginLeft="10dip"
-                android:layout_marginRight="10dip"
 
                 android:text="@string/WorkText2"
                 android:textSize="18sp"
-                android:textColor="#222222" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:orientation="vertical"
-
-            tools:context="com.aka.campuslancer.HireStarted">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="0.7"
-                android:layout_margin="5dip"
-                android:src="@drawable/money" />
+                android:textColor="#222222"
+                android:layout_gravity="bottom" />
 
             <TextView
                 android:id="@+id/WorkText3"
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="0.4"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
                 android:background="#55FFFFFF"
-
-                android:layout_marginLeft="10dip"
-                android:layout_marginRight="10dip"
 
                 android:text="@string/WorkText3"
                 android:textSize="18sp"
-                android:textColor="#222222" />
-
+                android:textColor="#222222"
+                android:layout_gravity="bottom" />
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/WorkNewProjects"
         android:background="#55FFFFFF"
-        android:layout_margin="5dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/SelectCategory"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/WorkNewProjects"
+        android:layout_alignParentEnd="false"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/Category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/HireNewProjects"
+            android:orientation="vertical">
 
-            android:layout_margin="5dp"
+            <TextView
+                android:id="@+id/SelectCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SelectCategory"
+                android:textSize="16sp"
+                android:textColor="#222222"
+                />
 
-            android:text="@string/SelectCategory"
-            android:textSize="16sp"
-            android:textColor="#222222"
-            />
+            <Spinner
+                android:id="@+id/categories_spinner"
+                android:layout_width="220dip"
+                android:layout_height="wrap_content"
+                />
 
-        <Spinner
-            android:id="@+id/categories_spinner"
-            android:layout_width="220dip"
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/browseProjectsButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
 
+            android:text="@string/BrowseProjects"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:background="#F8650D" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/browseProjectsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/WorkNewProjects"
-        android:layout_toRightOf="@id/Category"
-
-        android:layout_marginTop="25dip"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-
-        android:text="@string/BrowseProjects"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:background="#F8650D" />
 
 </RelativeLayout>

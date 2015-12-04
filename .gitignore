@@ -36,6 +36,8 @@ proguard/
 *.iml
 *.ipr
 *.iws
+*.gradle
+app/build.gradle
 .idea/
 screenshots/
 #Parse Keys

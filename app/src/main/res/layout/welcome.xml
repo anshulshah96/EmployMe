@@ -2,13 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgroundmain"
-        android:alpha="0.6" />
+    android:orientation="vertical"
+    android:background="@drawable/backgroundmain">
 
     <TextView
         android:id="@+id/Header"
@@ -43,61 +38,61 @@
         android:textSize="20sp"
         android:textColor="#000000" />
 
-    <Button
-        android:id="@+id/HireWelcome"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/WelcomeHeader"
-        android:text="@string/HireWelcome"
+        android:layout_below="@+id/WelcomeHeader">
 
-        android:layout_marginRight="210dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:background="#F8650D" />
+            <Button
+                android:id="@+id/HireWelcome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/WelcomeHeader"
+                android:text="@string/HireWelcome"
 
-    <Button
-        android:id="@+id/WorkWelcome"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/WelcomeHeader"
-        android:text="@string/WorkWelcome"
+                android:layout_margin="20dp"
 
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:background="#F8650D"
+                android:layout_weight="0.5" />
 
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
+            <Button
+                android:id="@+id/WorkWelcome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/WelcomeHeader"
+                android:text="@string/WorkWelcome"
+                android:layout_weight="0.5"
 
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:background="#F8650D" />
+                android:layout_margin="20dp"
 
-    <Button
-        android:id="@+id/LogOutWelcome"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:text="@string/LogoutBtn"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:background="#F8650D" />
+        </LinearLayout>
 
-        android:layout_below="@id/WorkWelcome"
-        android:layout_marginTop="10dp"
+        <Button
+            android:id="@+id/LogOutWelcome"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/LogoutBtn"
+            android:layout_gravity="center_horizontal"
 
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
+            android:layout_margin="20dp"
 
-        android:background="#F8650D"
-        android:layout_centerHorizontal="true" />
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
 
-    <!--<Spinner-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/categories_spinner"-->
-        <!--android:layout_below="@+id/LogOutWelcome"-->
-        <!--android:textAlignment="center"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginBottom="94dp" />-->
+            android:background="#F8650D"
+            android:layout_below="@+id/HireWelcome"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
 
 </RelativeLayout>
