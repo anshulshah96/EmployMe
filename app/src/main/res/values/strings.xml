@@ -72,4 +72,15 @@
     <string name="title_activity_custom_progress_dialog_box">CustomProgressDialogBox</string>
     <string name="title_activity_work_started">WorkStarted</string>
     <string name="title_activity_parse_application">ParseApplication</string>
+
+    <string-array name="categories_array">
+        <item>Soil Scientist</item>
+        <item>Pesticide Technician</item>
+        <item>Livestock Handler</item>
+        <item>Equipment Requirement</item>
+        <item>Animal Husbandry Profesional</item>
+        <item>Equipment Mechanic</item>
+        <item>Pet Groomer</item>
+    </string-array>
+    <string name="category_default">Soil Scientist</string>
 </resources>

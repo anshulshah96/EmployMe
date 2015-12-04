@@ -76,10 +76,10 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/usernamesignup"
-                    android:paddingTop="10dp"
+                    android:paddingTop="10dip"
 
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
 
                     android:text="Name"
                     android:textSize="20sp"
@@ -92,8 +92,8 @@
                 android:layout_below="@id/txtnamesignup"
                 android:padding="5sp"
 
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
 
                 android:inputType="text"
                 android:textSize="25sp"

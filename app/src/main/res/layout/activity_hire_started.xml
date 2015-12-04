@@ -12,7 +12,7 @@
         <TextView
             android:id="@+id/Header"
             android:layout_width="match_parent"
-            android:layout_height="60dip"
+            android:layout_height="wrap_content"
             android:background="#4444FF"
 
             android:paddingLeft="100dip"
@@ -38,7 +38,7 @@
 
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
-            android:layout_marginTop="5dip"
+            android:layout_marginTop="90dip"
 
             android:text="@string/HireGetStarted"
             android:textSize="22sp"
@@ -51,7 +51,7 @@
             android:layout_below="@id/HireGetStarted"
             android:id="@+id/HireNewProjects"
             android:layout_marginBottom="10dip"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dip">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -70,14 +70,14 @@
                     android:layout_weight="0.33"
                     android:layout_margin="5dip"
                     android:src="@drawable/peoplebids"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_weight="0.33"
                     android:layout_margin="5dip"
                     android:src="@drawable/money"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
             <LinearLayout
@@ -131,7 +131,7 @@
 
             android:layout_marginLeft="80dip"
             android:layout_marginRight="80dip"
-            android:layout_marginTop="10dip"
+            android:layout_marginTop="20dip"
             android:layout_marginBottom="5dip"
             android:onClick="onclick"
 
@@ -150,7 +150,7 @@
 
             android:layout_marginLeft="80dip"
             android:layout_marginRight="80dip"
-            android:layout_marginTop="5dip"
+            android:layout_marginTop="20dip"
 
             android:textSize="18sp"
             android:textColor="#FFFFFF"

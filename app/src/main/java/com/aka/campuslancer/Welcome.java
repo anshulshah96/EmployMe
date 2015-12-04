@@ -16,10 +16,10 @@ import android.widget.TextView;
 public class Welcome extends Activity {
 
     // Declare Variable
-    private String categories[];
+//    private String categories[];
     Button logout,hire,work;
     public static boolean loggedIn = true;
-    public static String category = "Android Development";
+//    public static String category = "Android Development";
     public static int userMobileNo;
 
     @Override
@@ -38,14 +38,14 @@ public class Welcome extends Activity {
         TextView txtuser = (TextView) findViewById(R.id.WelcomeHeader);
 
         // Set the currentUser String into TextView
-        txtuser.setText("Welcome to Campus Lancer "+struser+"! It is a platform for people who need to get their work, and people work and earn.");
+        txtuser.setText("Welcome to EmployMe "+struser+"! It is a platform for people who need to get their work, and people work and earn.");
 
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.LogOutWelcome);
         hire=(Button) findViewById(R.id.HireWelcome);
         work=(Button)findViewById(R.id.WorkWelcome);
 
-        this.categories = new String[] {"Android Development","Web Development","Web Design","Content Writing","Bakar"};
+//        this.categories = new String[] {"Android Development","Web Development","Web Design","Content Writing","Bakar"};
 
         work.setOnClickListener(new OnClickListener() {
             @Override

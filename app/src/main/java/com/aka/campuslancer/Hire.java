@@ -2,6 +2,7 @@ package com.aka.campuslancer;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,14 +20,11 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-/**
- * Created by anshul on 14/3/15.
- */
 public class Hire extends Activity {
     Button postButton;
     EditText topic, description, bid;
     private String[] categories;
-    public String category="Android Development";
+    public String category;
     public CustomProgressDialogBox dialog;
 
     @Override
@@ -36,7 +34,10 @@ public class Hire extends Activity {
         ParseObject.registerSubclass(HirePost.class);
         Parse.initialize(this, "gpSqLXFDsQg0oBtIg3ITgoYZLFiI9wkEF2tGiUR3", "pzEksVGPBG1iX8NkIoJ4V7hAPGoaTPo7dyNRkDs4");
 
-        this.categories = new String[] {"Mobile Development","Web Development","Design","Writing","Volunteering","Question-Answer","Miscellaneous"};
+        Resources res = getResources();
+        this.categories = res.getStringArray(R.array.categories_array);
+        category = getString(R.string.category_default);
+
         Spinner s =(Spinner) findViewById(R.id.spinners);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, categories);
         s.setAdapter(adapter);
@@ -50,7 +51,7 @@ public class Hire extends Activity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                category = "Android Development";
+                category = getString(R.string.category_default);
             }
         });
 

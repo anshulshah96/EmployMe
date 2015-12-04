@@ -2,6 +2,7 @@ package com.aka.campuslancer;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,7 +17,7 @@ import android.widget.Spinner;
 public class WorkStarted extends Activity {
 
     Button submitButton;
-    public static String category = "Android Development";
+    public static String category;
     private String categories[];
 
     @Override
@@ -26,7 +27,10 @@ public class WorkStarted extends Activity {
         submitButton = (Button)findViewById(R.id.browseProjectsButton);
 
 
-        this.categories = new String[] {"Mobile Development","Web Development","Design","Writing","Volunteering","Question-Answer","Miscellaneous"};
+        Resources res = getResources();
+        this.categories = res.getStringArray(R.array.categories_array);
+        category = getString(R.string.category_default);
+
         Spinner s =(Spinner) findViewById(R.id.categories_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, categories);
         s.setAdapter(adapter);
@@ -34,12 +38,12 @@ public class WorkStarted extends Activity {
         s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                category =  categories[position];
+                category = categories[position];
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                category = "Android Development";
+                category = getString(R.string.category_default);
             }
         });
 
@@ -48,7 +52,7 @@ public class WorkStarted extends Activity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(getApplicationContext(),WorkActivity.class);
+                Intent i = new Intent(getApplicationContext(), WorkActivity.class);
                 startActivity(i);
             }
         });

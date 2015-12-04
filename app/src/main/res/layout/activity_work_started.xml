@@ -35,7 +35,7 @@
 
         android:layout_marginLeft="10dip"
         android:layout_marginRight="10dip"
-        android:layout_marginTop="5dip"
+        android:layout_marginTop="90dip"
 
         android:text="@string/WorkGetStarted"
         android:textSize="22sp"
@@ -46,7 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/WorkNewProjects"
-        android:layout_below="@+id/WorkGetStarted">
+        android:layout_below="@+id/WorkGetStarted"
+        android:layout_marginTop="40dip">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -119,18 +120,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#55FFFFFF"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dip"
         android:layout_below="@+id/WorkNewProjects"
-        android:layout_alignParentEnd="false"
         android:orientation="horizontal">
         <LinearLayout
             android:id="@+id/Category"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_weight="0.2">
 
             <TextView
                 android:id="@+id/SelectCategory"
@@ -151,13 +152,14 @@
 
         <Button
             android:id="@+id/browseProjectsButton"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
 
             android:text="@string/BrowseProjects"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            android:background="#F8650D" />
+            android:background="#F8650D"
+            android:layout_weight="0.4" />
     </LinearLayout>
 
 
