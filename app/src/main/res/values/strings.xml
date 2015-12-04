@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Campus Lancer</string>
+    <string name="app_name">EmployMe</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
@@ -16,13 +16,13 @@
     <string name="SignupBtn">Sign Up</string>
     <string name="LogoutBtn">Log Out</string>
 
-    <string name="Welcome">Welcome to Campus Lancer! It is a platform for people who need to get their work, and people work and earn.</string>
+    <string name="Welcome">Welcome to EmployMe! It is a platform for people who need to get their work, and people work and earn.</string>
     <string name="HireWelcome">HIRE</string>
     <string name="WorkWelcome">WORK</string>
 
     <string name="SignUpBoost">Don\'t have an account? Sign Up for free!</string>
     <string name="forgotPassword"><u>Forgot Password?</u></string>
-    <string name="Heading">Campus Lancer</string>
+    <string name="Heading">EmployMe</string>
     <string name="ProjectListHeading">Active Projects</string>
     <string name="SignUpDescription">Sign Up as a New User for free!</string>
     <string name="ForgotPassword">Enter your E-Mail, to receive a mail from us, having a link which will allow your to reset your password.</string>
