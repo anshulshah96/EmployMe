@@ -39,23 +39,23 @@
         </activity>
         <activity
             android:name=".LoginSignupActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Welcome"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SignupActivity"
             android:label="@string/title_activity_signup"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Hire"></activity>
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Hire"/>
         <activity
             android:name=".PostActivity"
             android:label="@string/title_activity_post"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".WorkActivity"
             android:label="@string/title_activity_work"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <service android:name="com.parse.PushService" />
 
@@ -89,19 +89,19 @@
         <activity
             android:name=".HireStarted"
             android:label="@string/title_activity_hire_started"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ViewExistingProjects"
             android:label="@string/title_activity_view_existing_projects"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".forgetpassword"
             android:label="@string/title_activity_forgetpassword"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PeopleForProject"
             android:label="@string/title_activity_people_for_project"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.parse.push.notification_icon"
@@ -115,7 +115,7 @@
         <activity
             android:name=".WorkStarted"
             android:label="@string/title_activity_work_started"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
