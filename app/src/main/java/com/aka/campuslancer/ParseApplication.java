@@ -24,7 +24,7 @@ public class ParseApplication extends Application {
         ParseACL defaultacl=new ParseACL();
         defaultacl.setPublicReadAccess(true);
         PushService.setDefaultPushCallback(this,MainActivity.class);
-        ParsePush.subscribeInBackground(" ", new SaveCallback() {
+        ParsePush.subscribeInBackground("", new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if(e==null)
