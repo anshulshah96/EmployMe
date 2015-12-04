@@ -1,7 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aka.campuslancer.SignupActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
@@ -200,5 +204,5 @@
         android:textSize="20sp"
         android:textColor="#FFFFFF"
         android:background="#F8650D"/>
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
