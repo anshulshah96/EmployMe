@@ -105,9 +105,10 @@
             android:name="com.parse.push.notification_icon"
             android:resource="@drawable/mainlogo" />
         <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyD8LQckj7h5s6w_rAzk5UyP3WzpfkO3BCE" />
 
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD8LQckj7h5s6w_rAzk5UyP3WzpfkO3BCE" />
+        <!--android:name="com.google.android.maps.v2.API_KEY"-->
         <!-- <activity -->
         <!-- android:name=".CustomProgressDialogBox" -->
         <!-- android:label="@string/title_activity_custom_progress_dialog_box" > -->

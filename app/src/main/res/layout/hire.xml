@@ -167,6 +167,17 @@
             </LinearLayout>
 
             <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/map"
+                android:layout_margin="20dip"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:background="#F8650D"
+                android:text="Location"/>
+
+
+            <Button
                 android:id="@+id/HirePost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -179,11 +190,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/map"
-                android:text="Get Location"/>
 
         </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.aka.campuslancer;
 
+import com.parse.Parse;
 import com.parse.ParseUser;
 
 import android.app.Activity;
@@ -27,6 +28,8 @@ public class Welcome extends Activity {
         super.onCreate(savedInstanceState);
         // Get the view from singleitemview.xml
         setContentView(R.layout.welcome);
+        Parse.initialize(this, "gpSqLXFDsQg0oBtIg3ITgoYZLFiI9wkEF2tGiUR3", "pzEksVGPBG1iX8NkIoJ4V7hAPGoaTPo7dyNRkDs4");
+
 
         // Retrieve current user from Parse.com
         ParseUser currentUser = ParseUser.getCurrentUser();

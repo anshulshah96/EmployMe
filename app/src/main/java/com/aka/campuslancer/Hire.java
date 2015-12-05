@@ -86,7 +86,11 @@ public class Hire extends Activity {
         post.setTopic(text);
         post.setDescription(text1);
         post.setCategory(category);
-        post.setBid(Integer.parseInt(bid.getText().toString()));
+        if(bid.getText().toString()!=""){
+        post.setBid(Integer.parseInt(bid.getText().toString()));}
+        else
+        Toast.makeText(Hire.this,"Enter a bid to post project",Toast.LENGTH_LONG).show();
+
         String mobNo="";
 
         ParseUser parseUser = ParseUser.getCurrentUser();
