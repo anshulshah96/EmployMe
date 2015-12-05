@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,8 +20,10 @@ import android.view.animation.Animation;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.RequestPasswordResetCallback;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
 public class LoginSignupActivity extends Activity {
@@ -79,6 +82,19 @@ public class LoginSignupActivity extends Activity {
                                     edit.commit();
                                     Intent intent = new Intent(LoginSignupActivity.this, Welcome.class);
                                     startActivity(intent);
+                                    ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
+                                    currentInstall.put("user", ParseUser.getCurrentUser());
+                                    currentInstall.saveInBackground(new SaveCallback() {
+                                        @Override
+                                        public void done(ParseException e) {
+                                            if(e==null) {
+                                                Log.d("Instal","Registered");
+                                            }
+                                            else{
+                                                Log.e("Instal",e.getMessage());
+                                            }
+                                        }
+                                    });
                                     dialog.dismiss();
                                     Toast.makeText(getApplicationContext(),"Successfully Logged in",Toast.LENGTH_LONG).show();
                                     finish();
