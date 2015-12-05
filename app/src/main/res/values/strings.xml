@@ -23,14 +23,14 @@
     <string name="SignUpBoost">Don\'t have an account? Sign Up for free!</string>
     <string name="forgotPassword"><u>Forgot Password?</u></string>
     <string name="Heading">EmployMe</string>
-    <string name="ProjectListHeading">Active Projects</string>
+    <string name="ProjectListHeading">Active Posts</string>
     <string name="SignUpDescription">Sign Up as a New User for free!</string>
     <string name="ForgotPassword">Enter your E-Mail, to receive a mail from us, having a link which will allow your to reset your password.</string>
     <string name="ResetPassword">Reset Password</string>
     <string name="GoToMainPage">Go to main page ></string>
 
     <!-- Post Project for Hire Strings -->
-    <string name="HireInfo">Post your project by filling out the information regarding the work you need to be done.</string>
+    <string name="HireInfo">Describe the post by filling out the information regarding the work you need to be done.</string>
     <string name="HireTopic">Topic:</string>
     <string name="HireDescription">Description:</string>
     <string name="HireInitialBid">Budget:</string>
@@ -46,9 +46,9 @@
 
     <!--Get Started for Hiring Strings -->
     <string name="HireGetStarted">Get your job done efficiently and at the best prize! How this works:</string>
-    <string name="HireNewProject">Post New Project</string>
-    <string name="HireExistingProject">View Existing Projects</string>
-    <string name="HireText1">1. Post your required project and its details.</string>
+    <string name="HireNewProject">New Post</string>
+    <string name="HireExistingProject">View Existing Posts</string>
+    <string name="HireText1">1. Describe the post and its details.</string>
     <string name="HireText2">2. Choose bidders and compare prices.</string>
     <string name="HireText3">3. Get to contact and pay once satisfied.</string>
 
@@ -60,15 +60,15 @@
     <string name="SelectCategory">Select project category:</string>
     <string name="BrowseProjects">Browse Projects</string>
 
-    <string name="ExistingProjects">Existing Projects</string>
-    <string name="Bidders">Bidders for your project:</string>
+    <string name="ExistingProjects">Existing Posts</string>
+    <string name="Bidders">Bidders for your post:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_work">Hello Activity</string>
     <string name="title_activity_hire_started">HireStarted</string>
     <string name="title_activity_view_existing_projects">ViewExistingProjects</string>
     <string name="title_activity_forgetpassword">forgetpassword</string>
-    <string name="title_activity_people_for_project">PeopleForProject</string>
+    <string name="title_activity_people_for_project">PeopleForPost</string>
     <string name="title_activity_custom_progress_dialog_box">CustomProgressDialogBox</string>
     <string name="title_activity_work_started">WorkStarted</string>
     <string name="title_activity_parse_application">ParseApplication</string>

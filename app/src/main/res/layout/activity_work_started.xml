@@ -35,7 +35,7 @@
 
         android:layout_marginLeft="10dip"
         android:layout_marginRight="10dip"
-        android:layout_marginTop="90dip"
+        android:layout_marginTop="10dip"
 
         android:text="@string/WorkGetStarted"
         android:textSize="22sp"

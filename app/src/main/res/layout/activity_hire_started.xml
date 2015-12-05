@@ -38,7 +38,7 @@
 
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
-            android:layout_marginTop="90dip"
+            android:layout_marginTop="20dip"
 
             android:text="@string/HireGetStarted"
             android:textSize="22sp"
