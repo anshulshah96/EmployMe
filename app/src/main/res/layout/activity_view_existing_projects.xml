@@ -2,18 +2,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aka.campuslancer.WorkActivity">
+    tools:context="com.aka.campuslancer.WorkActivity"
+    android:background="@drawable/backgroundmain">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.aka.campuslancer.ViewExistingProjects">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgroundmain"
-        android:alpha="0.6" />
 
     <TextView
         android:id="@+id/Header"

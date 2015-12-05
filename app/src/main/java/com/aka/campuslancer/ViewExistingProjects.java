@@ -6,15 +6,21 @@ import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.app.ProgressDialog;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.DeleteCallback;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -69,16 +75,70 @@ public class ViewExistingProjects extends Activity {
                 TextView bidView = (TextView) view.findViewById(R.id.existing_projects_bid);
                 TextView description = (TextView) view.findViewById(R.id.existing_projects_description);
                 TextView projectId = (TextView) view.findViewById(R.id.existing_project_id);
+                Button deleteButton = (Button) view.findViewById(R.id.button_delete);
 
                 String topictxt=post.getTopic();
                 String bidtxt=""+post.getBid();
                 String descriptiontxt = post.getDescription();
-                String projectidtxt = post.getObjectId();
+                final String projectidtxt = post.getObjectId();
 
                 topicView.setText("Topic: "+topictxt);
                 bidView.setText("Budget: "+bidtxt);
                 description.setText("Description: "+descriptiontxt);
                 projectId.setText(projectidtxt);
+
+                deleteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ParseQuery<HirePost> query = ParseQuery.getQuery(HirePost.class);
+                        query.whereContains("objectId", projectidtxt);
+                        query.findInBackground(new FindCallback<HirePost>() {
+                            public void done(List<HirePost> jobs, ParseException e) {
+                                if (e == null) {
+                                    for (ParseObject job : jobs) {
+                                        Log.d("Deleting", job.getObjectId());
+                                        job.deleteInBackground(new DeleteCallback() {
+                                            @Override
+                                            public void done(ParseException e) {
+                                                if (e == null) {
+                                                    Toast.makeText(getApplicationContext(), "Post deleted", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    Log.d("DeleteError", e.getMessage());
+                                                }
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Log.d("DelFoundError", e.getMessage());
+                                }
+                            }
+                        });
+                        ParseQuery<BidPost> query2 = ParseQuery.getQuery(BidPost.class);
+                        query2.whereContains("projectId",projectidtxt);
+                        query2.findInBackground(new FindCallback<BidPost>() {
+                            @Override
+                            public void done(List<BidPost> bids, ParseException e) {
+                                if (e == null) {
+                                    for (ParseObject bid : bids) {
+                                        Log.d("DeleteBid", bid.getObjectId());
+                                        bid.deleteInBackground(new DeleteCallback() {
+                                            @Override
+                                            public void done(ParseException e) {
+                                                if (e == null) {
+                                                } else {
+                                                    Log.d("DelBidErr", e.getMessage());
+                                                }
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Log.d("DelFoundError", e.getMessage());
+                                }
+                            }
+                        });
+                        finish();
+                    }
+                });
 
                 return view;
             }

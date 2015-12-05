@@ -107,8 +107,9 @@ public class Hire extends Activity {
         dialog.setMessage("Posting...");
         dialog.show();
 
-       ParseACL acl = new ParseACL();
-       acl.setPublicReadAccess(true);
+        ParseACL acl = new ParseACL();
+        acl.setPublicReadAccess(true);
+        acl.setWriteAccess(ParseUser.getCurrentUser(), true);
         post.setACL(acl);
 
         // 3

@@ -144,6 +144,7 @@ public class WorkDescriptionFragment extends Fragment {
 
                 ParseACL acl = new ParseACL();
                 acl.setPublicReadAccess(true);
+                acl.setPublicWriteAccess(true);
                 bpost.setACL(acl);
 
                 bpost.saveInBackground(new SaveCallback() {
