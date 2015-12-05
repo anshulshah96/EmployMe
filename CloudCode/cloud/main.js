@@ -7,21 +7,16 @@ Parse.Cloud.define("hello", function(request, response) {
 
 Parse.Cloud.define("newBid",function(request,response){
   
-  var User = Parse.Object.extend("User");
-  var Installation = Parse.Object.extend("Installation");
-  var Bids = Parse.Object.extend("Bids");
-  var HireData = Parse.Object.extend("HireData");
-  
-  var bidQuery = new Parse.Query(Bids);
-  var userQuery = new Parse.Query(User);
-  var projectQuery = new Parse.Query(HireData);
-  var pushQuery = new Parse.Query(Installation);
+  var bidQuery = new Parse.Query("Bids");
+  var userQuery = new Parse.Query("User");
+  var projectQuery = new Parse.Query("HireData");
+  var pushQuery = new Parse.Query("Installation");
 
   ProjectId   = request.params.ProjectId;
   BidderName  = request.params.BidderName;
   Bid         = request.params.Bids;
 
-  // var topic = request.params.Topic;
+  var topic = request.params.Topic;
   var employer;
   var category;
 
@@ -47,11 +42,27 @@ Parse.Cloud.define("newBid",function(request,response){
   Parse.Push.send({
       where: pushQuery,
       data: {
-        alert: "New Bidder for your project "+request.params.Topic+" : "+BidderName,
+        alert: "New Bidder for your Post "+request.params.Topic+" : "+BidderName,
       }
     },{
         success:function(){
           response.success("Notification sent to "+employer);
+          console.log("Notification sent");
+            userQuery.find({
+                success:function(result){
+                  console.log("inside user find");
+                  if(result.length!=1){
+                    console.log("Installation fishy");
+                  }
+                  else{
+                    info = result[0];
+                    console.log(info.get("username"));
+                }
+              },
+                error:function(error){
+                  console.log(error)
+                }
+            });
         },
         error:function(error){
           response.error("Oops !! Cannot send Notification to "+employer);

@@ -1,11 +1,15 @@
 package com.aka.campuslancer;
 
 import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -80,14 +84,29 @@ public class Welcome extends Activity {
         // Logout Button Click Listener
         logout.setOnClickListener(new OnClickListener() {
 
-        public void onClick(View arg0) {
+            public void onClick(View arg0) {
                 // Logout current user
                 ParseUser.logOut();
                 loggedIn = false;
-                Intent intent = new Intent(getApplicationContext(),LoginSignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginSignupActivity.class);
                 startActivity(intent);
             }
         });
+
+        ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
+        currentInstall.put("user", ParseUser.getCurrentUser());
+        currentInstall.put("username",ParseUser.getCurrentUser().getUsername());
+        currentInstall.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    Log.d("Instal", "Registered");
+                } else {
+                    Log.e("Instal", e.getMessage());
+                }
+            }
+        });
+
 
 
     }
