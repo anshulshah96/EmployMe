@@ -19,6 +19,7 @@ public class Welcome extends Activity {
     // Declare Variable
 //    private String categories[];
     Button logout,hire,work;
+    String struser;
     public static boolean loggedIn = true;
 //    public static String category = "Android Development";
     public static int userMobileNo;
@@ -35,7 +36,13 @@ public class Welcome extends Activity {
         ParseUser currentUser = ParseUser.getCurrentUser();
 
         // Convert currentUser into String
-        String struser = currentUser.getUsername().toString();
+        if(currentUser==null)
+        {
+            Intent i=new Intent(Welcome.this,LoginSignupActivity.class);
+            startActivity(i);
+        }
+        else
+            struser = currentUser.getUsername().toString();
 
         // Locate TextView in welcome.xml
         TextView txtuser = (TextView) findViewById(R.id.WelcomeHeader);
