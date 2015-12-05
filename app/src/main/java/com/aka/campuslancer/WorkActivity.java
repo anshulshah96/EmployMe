@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
+
 import android.widget.AdapterView.OnItemClickListener;
 
 import java.util.List;
@@ -56,7 +58,8 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                         ParseQuery<HirePost> query = HirePost.getQuery();
                         query.include("user");
                         query.include("objectId");
-                        query.whereContains("category",WorkStarted.category);
+                        query.whereEqualTo("category", WorkStarted.category);
+                        query.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
                         query.orderByDescending("createdAt");
                         query.setLimit(MAX_POST_SEARCH_RESULTS);
                         q=query;

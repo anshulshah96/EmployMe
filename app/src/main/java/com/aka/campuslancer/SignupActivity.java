@@ -65,7 +65,7 @@ public class SignupActivity extends ActionBarActivity {
                                     "Successfully Signed up, please log in.",
                                     Toast.LENGTH_LONG).show();
                                  dialog.dismiss();
-                            finish();
+                                finish();
                         }
                         else {
                             Toast.makeText(getApplicationContext(),"SignUp Error: "+e.toString(), Toast.LENGTH_LONG).show();

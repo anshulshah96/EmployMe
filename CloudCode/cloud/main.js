@@ -7,10 +7,15 @@ Parse.Cloud.define("hello", function(request, response) {
 
 Parse.Cloud.define("newBid",function(request,response){
   
-  var bidQuery = new Parse.Query("Bids");
-  var userQuery = new Parse.Query("User");
-  var projectQuery = new Parse.Query("HireData");
-  var pushQuery = new Parse.Query("Installation");
+  var Bids = Parse.Object.extend("Bids");
+  var User = Parse.Object.extend("User");
+  var HireData = Parse.Object.extend("HireData");
+  var Installation = Parse.Object.extend("Installation");
+
+  var bidQuery = new Parse.Query(Bids);
+  var userQuery = new Parse.Query(User);
+  var projectQuery = new Parse.Query(HireData);
+  var pushQuery = new Parse.Query(Installation);
 
   ProjectId   = request.params.ProjectId;
   BidderName  = request.params.BidderName;
@@ -19,6 +24,8 @@ Parse.Cloud.define("newBid",function(request,response){
   var topic = request.params.Topic;
   var employer;
   var category;
+  var userid;
+  var empObject;
 
   projectQuery.equalTo("objectId",ProjectId);
   projectQuery.find({
@@ -38,31 +45,39 @@ Parse.Cloud.define("newBid",function(request,response){
       }
   });
 
-  pushQuery.equalTo("username",employer);
+  userQuery.equalTo("username",employer);
+  userQuery.find({
+      success:function(result){
+        console.log("inside employer find for "+employer);
+          if(result.length!=1){
+            console.log("employer fishy, length is "+ result.length);       
+          }
+          else{
+            info = result[0];
+            userid = info.get("objectId");
+            console.log(id);
+            empObject = result[0];
+          }
+        },
+    
+      error:function(error){
+          console.log(error);
+    }
+  });
+
+  var query = new Parse.Query("User");
+  query.equalTo('username', employer);
+  pushQuery.matchesQuery('user', query);
   Parse.Push.send({
-      where: pushQuery,
-      data: {
-        alert: "New Bidder for your Post "+request.params.Topic+" : "+BidderName,
-      }
-    },{
+        where: pushQuery,
+        data: {
+          alert: "New Bidder for your Post "+request.params.Topic+" : "+BidderName,
+        }
+      },
+      {
         success:function(){
           response.success("Notification sent to "+employer);
           console.log("Notification sent");
-            userQuery.find({
-                success:function(result){
-                  console.log("inside user find");
-                  if(result.length!=1){
-                    console.log("Installation fishy");
-                  }
-                  else{
-                    info = result[0];
-                    console.log(info.get("username"));
-                }
-              },
-                error:function(error){
-                  console.log(error)
-                }
-            });
         },
         error:function(error){
           response.error("Oops !! Cannot send Notification to "+employer);

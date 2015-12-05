@@ -46,7 +46,7 @@ public class Welcome extends Activity {
             startActivity(i);
         }
         else
-            struser = currentUser.getUsername().toString();
+            struser = ParseUser.getCurrentUser().getUsername();
 
         // Locate TextView in welcome.xml
         TextView txtuser = (TextView) findViewById(R.id.WelcomeHeader);
@@ -94,8 +94,8 @@ public class Welcome extends Activity {
         });
 
         ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
-        currentInstall.put("user", ParseUser.getCurrentUser());
-        currentInstall.put("username",ParseUser.getCurrentUser().getUsername());
+        currentInstall.put("user", currentUser);
+        currentInstall.put("username",currentUser.getUsername());
         currentInstall.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
