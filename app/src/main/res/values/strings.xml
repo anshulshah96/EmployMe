@@ -83,4 +83,5 @@
         <item>Pet Groomer</item>
     </string-array>
     <string name="category_default">Soil Scientist</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

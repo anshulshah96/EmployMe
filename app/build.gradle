@@ -28,6 +28,14 @@ dependencies {
     compile files('/home/anshul/AndroidStudioProjects/EmployMe/libs/bolts-android-1.1.4-javadoc.jar')
     compile files('/home/anshul/AndroidStudioProjects/EmployMe/libs/ParseCrashReporting-1.8.3.jar')
     compile files('/home/anshul/AndroidStudioProjects/EmployMe/libs/Parse-1.8.3.jar')
+
+    compile files('/home/manthan/EmployMe/libs/bolts-android-1.1.4.jar')
+    compile files('/home/manthan/EmployMe/libs/bolts-android-1.1.4-javadoc.jar')
+    compile files('/home/manthan/EmployMe/libs/ParseCrashReporting-1.8.3.jar')
+    compile files('/home/manthan/EmployMe/libs/Parse-1.8.3.jar')
+    compile 'com.google.android.gms:play-services:8.3.0'
+
+
 }
 dependencies {
 //    compile 'com.parse.bolts:bolts-android:1.+'

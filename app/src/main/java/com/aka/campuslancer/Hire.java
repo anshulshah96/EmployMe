@@ -2,6 +2,7 @@ package com.aka.campuslancer;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 public class Hire extends Activity {
-    Button postButton;
+    Button postButton,mapbutton;
     EditText topic, description, bid;
     private String[] categories;
     public String category;
@@ -57,6 +58,7 @@ public class Hire extends Activity {
 
 
         postButton = (Button) findViewById(R.id.HirePost);
+        mapbutton=(Button)findViewById(R.id.map);
             topic = (EditText) findViewById(R.id.TopicField);
             description = (EditText) findViewById(R.id.DescriptionField);
             bid = (EditText) findViewById(R.id.InitialBidField);
@@ -65,6 +67,13 @@ public class Hire extends Activity {
                     post();
                 }
             });
+        mapbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Hire.this,MapsActivity.class);
+                startActivity(i);
+            }
+        });
         }
 
     private void post() {

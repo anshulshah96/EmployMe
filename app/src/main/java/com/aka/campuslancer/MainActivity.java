@@ -19,9 +19,10 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(MainActivity.this,
                     LoginSignupActivity.class);
             startActivity(intent);
-            finish();
+
         }
-        else {
+        else
+            if(!ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
             // If current user is NOT anonymous user
             // Get current user data from Parse.com
             ParseUser currentUser = ParseUser.getCurrentUser();
@@ -29,16 +30,23 @@ public class MainActivity extends Activity {
                 // Send logged in users to Welcome.class
                 Intent intent = new Intent(MainActivity.this, Welcome.class);
                 startActivity(intent);
-                finish();
+
             } else {
                 // Send user to LoginSignupActivity.class
 
                 Intent intent = new Intent(MainActivity.this,
                         LoginSignupActivity.class);
                 startActivity(intent);
-                finish();
             }
         }
+        else{
+                Intent intent = new Intent(MainActivity.this,
+                        LoginSignupActivity.class);
+                startActivity(intent);
+
+            }
 
     }
+
+
 }
