@@ -33,7 +33,7 @@ public class Hire extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hire);
         ParseObject.registerSubclass(HirePost.class);
-        //Parse.initialize(this, "gpSqLXFDsQg0oBtIg3ITgoYZLFiI9wkEF2tGiUR3", "pzEksVGPBG1iX8NkIoJ4V7hAPGoaTPo7dyNRkDs4");
+        Parse.initialize(this, "gpSqLXFDsQg0oBtIg3ITgoYZLFiI9wkEF2tGiUR3", "pzEksVGPBG1iX8NkIoJ4V7hAPGoaTPo7dyNRkDs4");
 
         Resources res = getResources();
         this.categories = res.getStringArray(R.array.categories_array);

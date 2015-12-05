@@ -6,6 +6,7 @@ import android.util.Log;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.PushService;
@@ -20,6 +21,7 @@ public class ParseApplication extends Application {
         super.onCreate();
         Parse.enableLocalDatastore(this);
         Parse.initialize(this,Keys.API_KEY,Keys.CLIENT_KEY);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
         ParseUser.enableAutomaticUser();
         ParseACL defaultacl=new ParseACL();
         defaultacl.setPublicReadAccess(true);
