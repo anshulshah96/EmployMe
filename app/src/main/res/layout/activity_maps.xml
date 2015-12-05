@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<RelativeLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".MapsActivity"-->
+    <!--&gt;-->
 
 
+<fragment
 
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:name="com.google.android.gms.maps.MapFragment"
+    android:layout_above="@+id/butdone"
 
-
-    app:cameraZoom="1"
+    app:cameraZoom="3"
     app:mapType="normal"
     app:uiCompass="false"
     app:uiRotateGestures="true"
@@ -18,11 +25,29 @@
     app:uiTiltGestures="true"
     app:uiZoomControls="false"
     app:uiZoomGestures="true"
-    />
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" />
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/butdone"-->
+        <!--android:text="DONE"-->
+        <!--android:gravity="bottom"/>-->
+<!--</RelativeLayout>-->
+
     <!--app:cameraTargetLat="29.86621840000"-->
     <!--app:cameraTargetLng="77.89531809999"-->
     <!--app:cameraBearing="112.5"-->
     <!--app:cameraTilt="30"-->
+    <!--app:cameraZoom="1"-->
+    <!--app:mapType="normal"-->
+    <!--app:uiCompass="false"-->
+    <!--app:uiRotateGestures="true"-->
+    <!--app:uiScrollGestures="true"-->
+    <!--app:uiTiltGestures="true"-->
+    <!--app:uiZoomControls="false"-->
+    <!--app:uiZoomGestures="true"-->
 
 
 
