@@ -163,8 +163,9 @@ public class ViewExistingProjects extends Activity {
 
             @Override
             public void onLoaded(List<HirePost> hirePosts, Exception e) {
+                try{
                 if(hirePosts.isEmpty()&&e==null){
-
+                    dialog.dismiss();
                     Toast.makeText(getApplicationContext(),"No Existing Projects.",Toast.LENGTH_SHORT).show();
                     finish();
                 }
@@ -176,6 +177,10 @@ public class ViewExistingProjects extends Activity {
                     finish();
                 }
             }
+            catch(Exception ex)
+            {
+                Log.e("errrrr",ex.toString());
+            }}
         });
 
         doListQuery();

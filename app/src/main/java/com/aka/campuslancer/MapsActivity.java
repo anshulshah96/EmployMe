@@ -72,6 +72,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     b.putString("longi",longi+"");
                     i.putExtras(b);
                     startActivity(i);
+                finish();
 
             }
         });

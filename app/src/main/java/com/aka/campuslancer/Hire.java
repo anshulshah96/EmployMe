@@ -26,18 +26,19 @@ public class Hire extends Activity  {
     EditText topic, description, bid;
     private String[] categories;
     public String category;
-    public static Hire instance;
     public CustomProgressDialogBox dialog;
-    String lat,longi;
+    String lat,longi,text,text1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hire);
         ParseObject.registerSubclass(HirePost.class);
-
+        mapbutton=(Button)findViewById(R.id.map);
+        topic = (EditText) findViewById(R.id.TopicField);
+        description = (EditText) findViewById(R.id.DescriptionField);
+        bid = (EditText) findViewById(R.id.InitialBidField);
         Resources res = getResources();
-        instance = this;
         this.categories = res.getStringArray(R.array.categories_array);
         category = getString(R.string.category_default);
 
@@ -48,6 +49,10 @@ public class Hire extends Activity  {
             } else {
                 lat=extras.getString("lat");
                 longi=extras.getString("longi");
+                mapbutton.setText("Location Set");
+                topic.setText(text);
+                description.setText(text1);
+                bid.setText(bid.getText().toString());
             }
         } else {
             ;
@@ -73,13 +78,11 @@ public class Hire extends Activity  {
 
 
         postButton = (Button) findViewById(R.id.HirePost);
-        mapbutton=(Button)findViewById(R.id.map);
-            topic = (EditText) findViewById(R.id.TopicField);
-            description = (EditText) findViewById(R.id.DescriptionField);
-            bid = (EditText) findViewById(R.id.InitialBidField);
+
             postButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     post();
+                    finish();
                 }
             });
         mapbutton.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +91,7 @@ public class Hire extends Activity  {
                 Intent i=new Intent(Hire.this,MapsActivity.class);
                 i.putExtra("caller","Hirer");
                 startActivity(i);
+                finish();
             }
         });
         }
@@ -95,8 +99,8 @@ public class Hire extends Activity  {
     private void post() {
         // 1
         HirePost post = new HirePost();
-        String text =  topic.getText().toString().trim();
-        String text1 = description.getText().toString().trim();
+         text =  topic.getText().toString().trim();
+         text1 = description.getText().toString().trim();
 
         post.setUsername();
         post.setUser(ParseUser.getCurrentUser());
@@ -105,6 +109,8 @@ public class Hire extends Activity  {
         if(lat==null || longi==null)
         {
          Toast.makeText(Hire.this,"Select Location",Toast.LENGTH_LONG).show();
+            onCreate(null);
+            finish();
         }
         post.setLat(lat);
         post.setLongi(longi);
@@ -140,6 +146,8 @@ public class Hire extends Activity  {
             @Override
             public void done(ParseException e) {
                 if(e==null) {
+                    Intent i =new Intent(Hire.this,Welcome.class);
+                    startActivity(i);
                     dialog.dismiss();
                     finish();
                 }
