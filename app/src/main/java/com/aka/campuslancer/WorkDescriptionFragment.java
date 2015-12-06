@@ -53,6 +53,7 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
     Button bidButton,location;
     String projectId;
     double lat,longi;
+    public static WorkDescriptionFragment instance;
 
     private String mParam1;
     private String mParam2;
@@ -106,7 +107,7 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
         bidValue = (EditText) view.findViewById(R.id.BidValue);
         bidButton = (Button) view.findViewById(R.id.bidButton);
         navigationTv = (TextView) view.findViewById(R.id.work_fragment_tv_navigation);
-        location=(Button)view.findViewById(R.id.location);
+//        location=(Button)view.findViewById(R.id.location);
         topicTv.setText(WorkActivity.topic);
         descriptionTv.setText(WorkActivity.description);
         usernameTv.setText(WorkActivity.username);
@@ -128,8 +129,9 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
                 bpost.setProjectIdString(projectId);
                 bpost.setUser(ParseUser.getCurrentUser());
                 bpost.setBidderUsername(ParseUser.getCurrentUser().getUsername());
-                bpost.setLat(lat+"");
-                bpost.setLongi(longi+"");
+//                bpost.setLat(lat+"");
+//                bpost.setLongi(longi+"");
+
                 String mobNo="";
                 ParseUser parseUser = ParseUser.getCurrentUser();
                 try {
@@ -195,13 +197,14 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
             }
         });
 
-        location.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            Intent i= new Intent(getActivity(),MapsActivity.class);
-                startActivity(i);
-            }
-        });
+//        location.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//            Intent i= new Intent(getActivity(),MapsActivity.class);
+//            i.putExtra("caller","Bidder");
+//            startActivity(i);
+//            }
+//        });
 
 
         return view;

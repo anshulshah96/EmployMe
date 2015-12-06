@@ -77,15 +77,16 @@ public class PeopleForProject extends Activity {
                 TextView projectuser = (TextView) view.findViewById(R.id.peopleproject_user);
                 TextView projectmobile = (TextView) view.findViewById(R.id.peopleproject_mobile);
                 TextView projectbid = (TextView) view.findViewById(R.id.bid_amount);
-                Button location=(Button)view.findViewById(R.id.location);
-                location.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        got.onGetLocation(lat,longi);
-                        Intent i=new Intent(PeopleForProject.this,MapsActivityBid.class);
-                        startActivity(i);
-                    }
-                });
+
+//                Button location=(Button)view.findViewById(R.id.location);
+//                location.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        got.onGetLocation(lat,longi);
+//                        Intent i=new Intent(PeopleForProject.this,MapsActivityBid.class);
+//                        startActivity(i);
+//                    }
+//                });
 
                 String pb = "" + post.getBid();
                 String pu = "" + post.getBidderUsername();

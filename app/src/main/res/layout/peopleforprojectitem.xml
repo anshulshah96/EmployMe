@@ -112,13 +112,4 @@
         android:visibility="gone"
         android:id="@+id/peopleproject_id"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/location"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="My Location"
-        android:alpha="0.5"/>
 </RelativeLayout>

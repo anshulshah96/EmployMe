@@ -31,8 +31,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         Toast.makeText(MapsActivity.this,"Turn on your GPS for getting location",Toast.LENGTH_LONG).show();
-
-        setOnLocationChosenListner(Hire.instance);
+        String newString;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                newString= null;
+            } else {
+                newString= extras.getString("caller");
+            }
+        } else {
+            newString= (String) savedInstanceState.getSerializable("caller");
+        }
+        if(newString=="Bidder")
+            setOnLocationChosenListner(WorkDescriptionFragment.instance);
+        else if(newString=="Hirer")
+            setOnLocationChosenListner(Hire.instance);
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         map=mapFragment.getMap();

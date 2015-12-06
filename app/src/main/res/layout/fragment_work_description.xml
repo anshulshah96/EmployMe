@@ -189,18 +189,6 @@
             android:textSize="14sp"
             android:onClick="navigationClick"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:background="#F8650D"
-            android:text="My Location"
-            android:id="@+id/location"
-            android:layout_above="@+id/work_fragment_tv_navigation"
-            android:layout_toLeftOf="@+id/work_fragment_tv_navigation"
-            android:layout_toStartOf="@+id/work_fragment_tv_navigation" />
-
     </RelativeLayout>
 
 </RelativeLayout>

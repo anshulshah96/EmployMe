@@ -74,6 +74,7 @@ public class Hire extends Activity implements MapsActivity.OnLocatinChosenListen
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(Hire.this,MapsActivity.class);
+                i.putExtra("caller","Hirer");
                 startActivity(i);
             }
         });
