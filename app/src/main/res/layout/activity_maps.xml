@@ -8,15 +8,18 @@
     <!--tools:context=".MapsActivity"-->
     <!--&gt;-->
 
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <fragment
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:name="com.google.android.gms.maps.MapFragment"
     android:layout_above="@+id/butdone"
-
     app:cameraZoom="3"
     app:mapType="normal"
     app:uiCompass="false"
@@ -25,9 +28,17 @@
     app:uiTiltGestures="true"
     app:uiZoomControls="false"
     app:uiZoomGestures="true"
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" />
+    />
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/butdone"
+    android:text="DONE"
+    android:gravity="bottom"
+        android:textColor="#FFFFFF"
+        android:background="#F8650D"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
     <!--<Button-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->

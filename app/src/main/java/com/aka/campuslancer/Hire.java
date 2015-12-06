@@ -21,12 +21,13 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-public class Hire extends Activity {
+public class Hire extends Activity implements MapsActivity.OnLocatinChosenListener {
     Button postButton,mapbutton;
     EditText topic, description, bid;
     private String[] categories;
     public String category;
     public CustomProgressDialogBox dialog;
+    double lat=0,longi=0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,10 +82,20 @@ public class Hire extends Activity {
         HirePost post = new HirePost();
         String text =  topic.getText().toString().trim();
         String text1 = description.getText().toString().trim();
+
+        MapsActivity a=new MapsActivity();
+        a.setOnLocationChosenListner(this);
+
         post.setUsername();
         post.setUser(ParseUser.getCurrentUser());
         post.setTopic(text);
         post.setDescription(text1);
+        if(lat==0 || longi==0)
+        {
+         Toast.makeText(Hire.this,"Select Location",Toast.LENGTH_LONG).show();
+        }
+        post.setLat(lat+"");
+        post.setLongi(longi+"");
         post.setCategory(category);
         if(bid.getText().toString()!=""){
         post.setBid(Integer.parseInt(bid.getText().toString()));}
@@ -128,6 +139,12 @@ public class Hire extends Activity {
             }
         });
 
+    }
+
+    @Override
+    public void onLocationChosen(double lat, double longi) {
+        this.lat=lat;
+        this.longi=longi;
     }
 }
 

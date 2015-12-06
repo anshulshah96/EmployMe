@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,13 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
     public static String mobileno;
     public static String projectId;
     public CustomProgressDialogBox dialog;
+    onGetLocationListner got;
+    double lat,longi;
+
+    public interface onGetLocationListner{
+        public void onGetLocation(double lat,double longi);
+    }
+
 
     ParseQuery<HirePost> q = HirePost.getQuery();
 
@@ -80,13 +88,15 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 TextView enrolView = (TextView) view.findViewById(R.id.post_mobile);
                 TextView descriptionView = (TextView) view.findViewById(R.id.post_description);
                 TextView projectId = (TextView) view.findViewById(R.id.post_project_id);
-
+                Button location=(Button)view.findViewById(R.id.location);
                 String topictxt=post.getTopic();
                 String bidtxt="Budget: Rs."+post.getBid();
                 String enrolltxt=""+post.getMobileNo();
                 String unametxt=post.getUsername();
                 String descriptiontxt = post.getDescription();
                 String projectIdtxt = post.getObjectId();
+                lat=Double.parseDouble(post.getLat());
+                longi=Double.parseDouble(post.getLongi());
 //                String nametxt = post.getname();
 
                 topicView.setText(topictxt);
@@ -95,6 +105,14 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 usernameView.setText(unametxt);
                 descriptionView.setText(descriptiontxt);
                 projectId.setText(projectIdtxt);
+                location.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        got.onGetLocation(lat,longi);
+                        Intent i=new Intent(WorkActivity.this,MapsActivityBid.class);
+                        startActivity(i);
+                    }
+                });
 
                 return view;
             }
@@ -165,6 +183,11 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
             startActivity(intent);
             finish();
         }
+    }
+
+    public void setOnGetLocation(onGetLocationListner l)
+    {
+        got=l;
     }
 
 }

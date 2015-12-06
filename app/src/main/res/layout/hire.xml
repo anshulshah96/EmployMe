@@ -174,7 +174,7 @@
                 android:textSize="20sp"
                 android:textColor="#FFFFFF"
                 android:background="#F8650D"
-                android:text="Location"/>
+                android:text="Set Your Location"/>
 
 
             <Button

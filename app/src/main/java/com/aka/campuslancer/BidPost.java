@@ -61,4 +61,9 @@ public class BidPost extends ParseObject {
     public static ParseQuery<BidPost> getQuery() {
         return ParseQuery.getQuery(BidPost.class);
     }
+
+    public void setLat(String lat){put("lat",lat);}
+    public void setLongi(String longi){put("longi",longi);}
+    public String getLat(){return getString("lat");}
+    public String getLongi(){return getString("longi");}
 }

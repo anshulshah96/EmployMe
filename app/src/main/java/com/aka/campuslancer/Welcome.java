@@ -42,12 +42,32 @@ public class Welcome extends Activity {
         // Convert currentUser into String
         if(currentUser==null)
         {
+
             Intent i=new Intent(Welcome.this,LoginSignupActivity.class);
             startActivity(i);
+            finish();
         }
-        else
+        else {
             struser = ParseUser.getCurrentUser().getUsername();
-
+            try{
+            ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
+            currentInstall.put("user", currentUser);
+            currentInstall.put("username",currentUser.getUsername());
+            currentInstall.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if (e == null) {
+                        Log.d("Instal", "Registered");
+                    } else {
+                        Log.e("Instal", e.getMessage());
+                    }
+                }
+            });}
+            catch (Exception e)
+            {
+                Log.e("Error",e.getMessage());
+            }
+        }
         // Locate TextView in welcome.xml
         TextView txtuser = (TextView) findViewById(R.id.WelcomeHeader);
 
@@ -93,19 +113,7 @@ public class Welcome extends Activity {
             }
         });
 
-        ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
-        currentInstall.put("user", currentUser);
-        currentInstall.put("username",currentUser.getUsername());
-        currentInstall.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    Log.d("Instal", "Registered");
-                } else {
-                    Log.e("Instal", e.getMessage());
-                }
-            }
-        });
+
 
 
 

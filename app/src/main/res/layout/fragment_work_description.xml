@@ -169,22 +169,40 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBaseline="@+id/Header"
+        android:layout_alignBottom="@+id/Header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/work_fragment_tv_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dip"
+            android:text="@string/GoToMainPage"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="#BB000000"
+            android:clickable="true"
+            android:textSize="14sp"
+            android:onClick="navigationClick"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:background="#F8650D"
+            android:text="My Location"
+            android:id="@+id/location"
+            android:layout_above="@+id/work_fragment_tv_navigation"
+            android:layout_toLeftOf="@+id/work_fragment_tv_navigation"
+            android:layout_toStartOf="@+id/work_fragment_tv_navigation" />
+
+    </RelativeLayout>
+
 </RelativeLayout>
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/work_fragment_tv_navigation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dip"
-        android:text="@string/GoToMainPage"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:textColor="#BB000000"
-        android:clickable="true"
-        android:textSize="14sp"
-        android:onClick="navigationClick"/>
-    </RelativeLayout>
 </FrameLayout>

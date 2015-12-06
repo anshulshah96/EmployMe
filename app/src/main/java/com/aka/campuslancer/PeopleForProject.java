@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,12 @@ public class PeopleForProject extends Activity {
     ParseQuery<BidPost> q = BidPost.getQuery();
     ParseQueryAdapter<BidPost> postsQueryAdapter;
     public CustomProgressDialogBox dialog;
+    onGetLocationListner got;
+    double lat,longi;
+
+    public interface onGetLocationListner{
+        public void onGetLocation(double lat,double longi);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +77,20 @@ public class PeopleForProject extends Activity {
                 TextView projectuser = (TextView) view.findViewById(R.id.peopleproject_user);
                 TextView projectmobile = (TextView) view.findViewById(R.id.peopleproject_mobile);
                 TextView projectbid = (TextView) view.findViewById(R.id.bid_amount);
+                Button location=(Button)view.findViewById(R.id.location);
+                location.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        got.onGetLocation(lat,longi);
+                        Intent i=new Intent(PeopleForProject.this,MapsActivityBid.class);
+                        startActivity(i);
+                    }
+                });
 
                 String pb = "" + post.getBid();
                 String pu = "" + post.getBidderUsername();
+                 lat=Double.parseDouble(post.getLat());
+                 longi=Double.parseDouble(post.getLongi());
 
                 projectbid.setText("Bid: Rs."+pb);
                 projectuser.setText("Bidder: "+pu);
@@ -132,6 +150,11 @@ public class PeopleForProject extends Activity {
             startActivity(intent);
             finish();
         }
+    }
+
+    public void setOnGetLocation(onGetLocationListner l)
+    {
+        got=l;
     }
 }
 

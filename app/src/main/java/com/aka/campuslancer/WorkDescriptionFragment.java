@@ -41,7 +41,7 @@ import java.util.List;
  * Use the {@link WorkDescriptionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorkDescriptionFragment extends Fragment {
+public class WorkDescriptionFragment extends Fragment implements MapsActivity.OnLocatinChosenListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -50,8 +50,9 @@ public class WorkDescriptionFragment extends Fragment {
     // TODO: Rename and change types of parameters
     TextView topicTv,descriptionTv,usernameTv,mobilenoTv,navigationTv;
     EditText bidValue;
-    Button bidButton;
+    Button bidButton,location;
     String projectId;
+    double lat,longi;
 
     private String mParam1;
     private String mParam2;
@@ -95,9 +96,9 @@ public class WorkDescriptionFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_work_description, container, false);
 
-
         ParseObject.registerSubclass(BidPost.class);
-
+        MapsActivity a=new MapsActivity();
+        a.setOnLocationChosenListner(this);
         topicTv = (TextView) view.findViewById(R.id.WorkDescriptionTopic);
         descriptionTv= (TextView) view.findViewById(R.id.WorkDescriptionFragmentDescription);
         usernameTv = (TextView) view.findViewById(R.id.WorkDescriptionFragmentUsername);
@@ -105,7 +106,7 @@ public class WorkDescriptionFragment extends Fragment {
         bidValue = (EditText) view.findViewById(R.id.BidValue);
         bidButton = (Button) view.findViewById(R.id.bidButton);
         navigationTv = (TextView) view.findViewById(R.id.work_fragment_tv_navigation);
-
+        location=(Button)view.findViewById(R.id.location);
         topicTv.setText(WorkActivity.topic);
         descriptionTv.setText(WorkActivity.description);
         usernameTv.setText(WorkActivity.username);
@@ -127,7 +128,8 @@ public class WorkDescriptionFragment extends Fragment {
                 bpost.setProjectIdString(projectId);
                 bpost.setUser(ParseUser.getCurrentUser());
                 bpost.setBidderUsername(ParseUser.getCurrentUser().getUsername());
-
+                bpost.setLat(lat+"");
+                bpost.setLongi(longi+"");
                 String mobNo="";
                 ParseUser parseUser = ParseUser.getCurrentUser();
                 try {
@@ -193,100 +195,17 @@ public class WorkDescriptionFragment extends Fragment {
             }
         });
 
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent i= new Intent(getActivity(),MapsActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         return view;
     }
-//
-//    public View onCreateView2(final LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_work_description, container, false);
-//
-//        topicTv = (TextView) view.findViewById(R.id.WorkDescriptionTopic);
-//        descriptionTv= (TextView) view.findViewById(R.id.WorkDescriptionFragmentDescription);
-//        usernameTv = (TextView) view.findViewById(R.id.WorkDescriptionFragmentUsername);
-//        mobilenoTv = (TextView) view.findViewById(R.id.WorkDescriptionFragmentMobileNumber);
-//        bidValue = (EditText) view.findViewById(R.id.BidValue);
-//        bidButton = (Button) view.findViewById(R.id.bidButton);
-//
-//        topicTv.setText(WorkActivity.topic);
-//        descriptionTv.setText(WorkActivity.description);
-//        usernameTv.setText(WorkActivity.username);
-//        mobilenoTv.setText(WorkActivity.mobileno);
-//
-//        projectId = WorkActivity.projectId;
-//
-//        bidButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                final ProgressDialog dialog = new ProgressDialog(getActivity());
-//                dialog.setMessage("Loading data...");
-//                dialog.show();
-//
-//                int bid = Integer.parseInt(bidValue.getText().toString());
-//                final ParseQuery<HirePost> query = ParseQuery.getQuery("HireData");
-//                query.whereContains("objectId",projectId);
-//
-//                HirePost obj = new HirePost();
-//
-//                query.findInBackground(new FindCallback<HirePost>() {
-//                    @Override
-//                    public void done(List<HirePost> hirePosts, com.parse.ParseException e) {
-//                        if (e == null) {
-//                            Log.i("bids ", "Retrieved " + hirePosts.get(0).getObjectId());
-//                            HirePost project = hirePosts.get(0);
-//                            if(project.getBidderIds()==null){
-//                                project.setBidderIds((new JSONArray()).put(ParseUser.getCurrentUser().getUsername()));
-//                            }
-//                            else {
-//                                JSONArray bidderids = project.getBidderIds();
-//                                bidderids.put(ParseUser.getCurrentUser().getUsername());
-//                                project.setBidderIds(bidderids);
-//                            }
-//
-//
-//                            ParseACL acl = new ParseACL();
-//                            project.setACL(acl);
-//
-//                            project.saveInBackground(new SaveCallback() {
-//                                @Override
-//                                public void done(com.parse.ParseException e) {
-//                                    if(e==null) {
-//                                        dialog.dismiss();
-//                                        Intent intent = new Intent(getActivity().getApplicationContext(),WorkActivity.class);
-//                                        startActivity(intent);
-//                                    }
-//                                    else{
-//                                        Log.e("Save in background",e.getMessage());
-//                                        dialog.dismiss();
-//                                    }
-//                                }
-//                            });
-//
-//                        } else {
-//                            Log.i("Error", "Error: " + e.getMessage());
-//                        }
-//                    }
-//                });
-//
-//
-//
-//
-//
-//
-//                JSONArray userIds = new JSONArray();
-//
-//
-//
-//            }
-//        });
-//
-//
-//
-//        return  view;
-//
-//    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -310,6 +229,12 @@ public class WorkDescriptionFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onLocationChosen(double lat, double longi) {
+        this.lat=lat;
+        this.longi=longi;
     }
 
     /**

@@ -126,5 +126,14 @@
         android:visibility="gone"
         android:id="@+id/post_project_id"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/location"
+        android:text="My Location"
+        android:alpha="0.5"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/post_mobile"
+        android:layout_alignStart="@+id/post_mobile" />
 
 </RelativeLayout>

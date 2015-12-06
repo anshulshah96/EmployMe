@@ -84,4 +84,5 @@
     </string-array>
     <string name="category_default">Soil Scientist</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps_activity_bid">MapsActivityBid</string>
 </resources>

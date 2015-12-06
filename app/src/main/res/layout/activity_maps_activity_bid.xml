@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<fragment xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="com.google.android.gms.maps.MapFragment"
+    app:cameraZoom="3"
+    app:mapType="normal"
+    app:uiCompass="false"
+    app:uiRotateGestures="true"
+    app:uiScrollGestures="true"
+    app:uiTiltGestures="true"
+    app:uiZoomControls="false"
+    app:uiZoomGestures="true" />
