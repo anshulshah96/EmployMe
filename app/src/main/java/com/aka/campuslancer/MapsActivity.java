@@ -29,24 +29,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_maps);
         Toast.makeText(MapsActivity.this,"Turn on your GPS for getting location",Toast.LENGTH_LONG).show();
 
-        MapFragment mapFragment = (MapFragment) getFragmentManager()
-                    .findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
-            map=mapFragment.getMap();
-            map.setMyLocationEnabled(true);
-            done=(Button)findViewById(R.id.butdone);
-            LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        setOnLocationChosenListner(Hire.instance);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+        map=mapFragment.getMap();
+        map.setMyLocationEnabled(true);
+        done=(Button)findViewById(R.id.butdone);
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String bestp= locationManager.getBestProvider(criteria,true);
         Location location=locationManager.getLastKnownLocation(bestp);
-            if(location!=null)
-            {
-                onLocationChanged(location);
-            }
-            locationManager.requestLocationUpdates(bestp,20000,0,this);
+
+        if(location!=null)
+        {
+            onLocationChanged(location);
+        }
+        locationManager.requestLocationUpdates(bestp,20000,0,this);
+
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,8 +94,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          lat=location.getLatitude();
          longi=location.getLongitude();
         LatLng latLng=new LatLng(lat,longi);
-        map.addMarker(new MarkerOptions().position(latLng)
-                .title("workplace").draggable(true));
+        map.addMarker(new MarkerOptions().position(latLng).title("workplace").draggable(true));
         map.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         map.animateCamera(CameraUpdateFactory.zoomTo(15));
 

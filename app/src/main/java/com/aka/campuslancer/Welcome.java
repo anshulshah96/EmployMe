@@ -50,10 +50,16 @@ public class Welcome extends Activity {
         else {
             struser = ParseUser.getCurrentUser().getUsername();
             try{
-            ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
-            currentInstall.put("user", currentUser);
-            currentInstall.put("username",currentUser.getUsername());
-            currentInstall.saveInBackground(new SaveCallback() {
+                ParseInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Log.d("Instal","object obtained");
+                    }
+                });
+                ParseInstallation currentInstall = ParseInstallation.getCurrentInstallation();
+                currentInstall.put("user", currentUser);
+                currentInstall.put("username",currentUser.getUsername());
+                currentInstall.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
                     if (e == null) {

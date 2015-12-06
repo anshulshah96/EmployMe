@@ -26,6 +26,7 @@ public class Hire extends Activity implements MapsActivity.OnLocatinChosenListen
     EditText topic, description, bid;
     private String[] categories;
     public String category;
+    public static Hire instance;
     public CustomProgressDialogBox dialog;
     double lat=0,longi=0;
 
@@ -37,6 +38,7 @@ public class Hire extends Activity implements MapsActivity.OnLocatinChosenListen
         //Parse.initialize(this, "gpSqLXFDsQg0oBtIg3ITgoYZLFiI9wkEF2tGiUR3", "pzEksVGPBG1iX8NkIoJ4V7hAPGoaTPo7dyNRkDs4");
 
         Resources res = getResources();
+        instance = this;
         this.categories = res.getStringArray(R.array.categories_array);
         category = getString(R.string.category_default);
 
@@ -82,9 +84,6 @@ public class Hire extends Activity implements MapsActivity.OnLocatinChosenListen
         HirePost post = new HirePost();
         String text =  topic.getText().toString().trim();
         String text1 = description.getText().toString().trim();
-
-        MapsActivity a=new MapsActivity();
-        a.setOnLocationChosenListner(this);
 
         post.setUsername();
         post.setUser(ParseUser.getCurrentUser());
