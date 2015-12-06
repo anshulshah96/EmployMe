@@ -21,26 +21,38 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-public class Hire extends Activity implements MapsActivity.OnLocatinChosenListener {
+public class Hire extends Activity  {
     Button postButton,mapbutton;
     EditText topic, description, bid;
     private String[] categories;
     public String category;
     public static Hire instance;
     public CustomProgressDialogBox dialog;
-    double lat=0,longi=0;
+    String lat,longi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hire);
         ParseObject.registerSubclass(HirePost.class);
-        //Parse.initialize(this, "gpSqLXFDsQg0oBtIg3ITgoYZLFiI9wkEF2tGiUR3", "pzEksVGPBG1iX8NkIoJ4V7hAPGoaTPo7dyNRkDs4");
 
         Resources res = getResources();
         instance = this;
         this.categories = res.getStringArray(R.array.categories_array);
         category = getString(R.string.category_default);
+
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                ;
+            } else {
+                lat=extras.getString("lat");
+                longi=extras.getString("longi");
+            }
+        } else {
+            ;
+        }
+
 
         Spinner s =(Spinner) findViewById(R.id.spinners);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, categories);
@@ -90,12 +102,12 @@ public class Hire extends Activity implements MapsActivity.OnLocatinChosenListen
         post.setUser(ParseUser.getCurrentUser());
         post.setTopic(text);
         post.setDescription(text1);
-        if(lat==0 || longi==0)
+        if(lat==null || longi==null)
         {
          Toast.makeText(Hire.this,"Select Location",Toast.LENGTH_LONG).show();
         }
-        post.setLat(lat+"");
-        post.setLongi(longi+"");
+        post.setLat(lat);
+        post.setLongi(longi);
         post.setCategory(category);
         if(bid.getText().toString()!=""){
         post.setBid(Integer.parseInt(bid.getText().toString()));}
@@ -141,11 +153,7 @@ public class Hire extends Activity implements MapsActivity.OnLocatinChosenListen
 
     }
 
-    @Override
-    public void onLocationChosen(double lat, double longi) {
-        this.lat=lat;
-        this.longi=longi;
-    }
+
 }
 
 

@@ -1,5 +1,6 @@
 package com.aka.campuslancer;
 
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -7,6 +8,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -22,30 +24,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     GoogleMap map;
     Button done;
     double lat,longi;
-    OnLocatinChosenListener changed;
-    public interface OnLocatinChosenListener{
-        public void onLocationChosen(double lat,double longi);
-    }
+    String newString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         Toast.makeText(MapsActivity.this,"Turn on your GPS for getting location",Toast.LENGTH_LONG).show();
-        String newString;
+
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
                 newString= null;
             } else {
                 newString= extras.getString("caller");
+                Log.e("string",newString);
             }
         } else {
             newString= (String) savedInstanceState.getSerializable("caller");
         }
-        if(newString=="Bidder")
-            setOnLocationChosenListner(WorkDescriptionFragment.instance);
-        else if(newString=="Hirer")
-            setOnLocationChosenListner(Hire.instance);
+
+
+
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         map=mapFragment.getMap();
@@ -65,8 +65,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changed.onLocationChosen(lat,longi);
-                onBackPressed();
+                Log.e("Yayy","Yipee");
+                    Intent i=new Intent(MapsActivity.this,Hire.class);
+                    Bundle b=new Bundle();
+                    b.putString("lat",lat+"");
+                    b.putString("longi",longi+"");
+                    i.putExtras(b);
+                    startActivity(i);
+
             }
         });
     }
@@ -77,10 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    public void setOnLocationChosenListner(OnLocatinChosenListener l)
-    {
-     changed=l;
-    }
+
     @Override
     public void onMapClick (LatLng latLng){
         Toast.makeText(getApplicationContext(), "" + latLng.latitude, Toast.LENGTH_LONG).show();

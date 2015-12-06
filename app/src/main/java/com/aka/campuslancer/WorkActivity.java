@@ -38,14 +38,6 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
     public static String mobileno;
     public static String projectId;
     public CustomProgressDialogBox dialog;
-    onGetLocationListner got;
-    double lat,longi;
-
-    public interface onGetLocationListner{
-        public void onGetLocation(double lat,double longi);
-    }
-
-
     ParseQuery<HirePost> q = HirePost.getQuery();
 
     @Override
@@ -95,8 +87,6 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 String unametxt=post.getUsername();
                 String descriptiontxt = post.getDescription();
                 String projectIdtxt = post.getObjectId();
-                lat=Double.parseDouble(post.getLat());
-                longi=Double.parseDouble(post.getLongi());
 //                String nametxt = post.getname();
 
                 topicView.setText(topictxt);
@@ -108,7 +98,6 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 location.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        got.onGetLocation(lat,longi);
                         Intent i=new Intent(WorkActivity.this,MapsActivityBid.class);
                         startActivity(i);
                     }
@@ -183,11 +172,6 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
             startActivity(intent);
             finish();
         }
-    }
-
-    public void setOnGetLocation(onGetLocationListner l)
-    {
-        got=l;
     }
 
 }

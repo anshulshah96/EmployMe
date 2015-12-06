@@ -11,7 +11,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivityBid extends FragmentActivity implements OnMapReadyCallback ,PeopleForProject.onGetLocationListner,WorkActivity.onGetLocationListner{
+public class MapsActivityBid extends FragmentActivity implements OnMapReadyCallback{
     GoogleMap map;
     double lat,longi;
     @Override
@@ -21,11 +21,6 @@ public class MapsActivityBid extends FragmentActivity implements OnMapReadyCallb
         Toast.makeText(MapsActivityBid.this,"Turn on your GPS for getting location",Toast.LENGTH_LONG).show();
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
-        PeopleForProject a=new PeopleForProject();
-        a.setOnGetLocation(this);
-
-        WorkActivity b=new WorkActivity();
-        b.setOnGetLocation(this);
 
         mapFragment.getMapAsync(this);
         map=mapFragment.getMap();
@@ -38,11 +33,6 @@ public class MapsActivityBid extends FragmentActivity implements OnMapReadyCallb
 
     }
 
-    @Override
-    public void onGetLocation(double lat, double longi) {
-        this.lat=lat;
-        this.longi=longi;
-    }
 
 
 }

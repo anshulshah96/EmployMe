@@ -41,7 +41,7 @@ import java.util.List;
  * Use the {@link WorkDescriptionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorkDescriptionFragment extends Fragment implements MapsActivity.OnLocatinChosenListener {
+public class WorkDescriptionFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -52,7 +52,6 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
     EditText bidValue;
     Button bidButton,location;
     String projectId;
-    double lat,longi;
     public static WorkDescriptionFragment instance;
 
     private String mParam1;
@@ -98,8 +97,7 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
         View view = inflater.inflate(R.layout.fragment_work_description, container, false);
 
         ParseObject.registerSubclass(BidPost.class);
-        MapsActivity a=new MapsActivity();
-        a.setOnLocationChosenListner(this);
+
         topicTv = (TextView) view.findViewById(R.id.WorkDescriptionTopic);
         descriptionTv= (TextView) view.findViewById(R.id.WorkDescriptionFragmentDescription);
         usernameTv = (TextView) view.findViewById(R.id.WorkDescriptionFragmentUsername);
@@ -129,8 +127,7 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
                 bpost.setProjectIdString(projectId);
                 bpost.setUser(ParseUser.getCurrentUser());
                 bpost.setBidderUsername(ParseUser.getCurrentUser().getUsername());
-//                bpost.setLat(lat+"");
-//                bpost.setLongi(longi+"");
+
 
                 String mobNo="";
                 ParseUser parseUser = ParseUser.getCurrentUser();
@@ -234,11 +231,7 @@ public class WorkDescriptionFragment extends Fragment implements MapsActivity.On
         mListener = null;
     }
 
-    @Override
-    public void onLocationChosen(double lat, double longi) {
-        this.lat=lat;
-        this.longi=longi;
-    }
+
 
     /**
      * This interface must be implemented by activities that contain this
