@@ -28,7 +28,7 @@ public class MapsActivityBid extends FragmentActivity implements OnMapReadyCallb
         mapFragment.getMapAsync(this);
         map=mapFragment.getMap();
         map.addMarker(new MarkerOptions().position(new LatLng(lat,longi))
-                .title("bidder").draggable(true));
+                .title("bidder").draggable(false));
     }
 
     @Override

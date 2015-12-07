@@ -82,7 +82,6 @@ public class Hire extends Activity  {
             postButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     post();
-                    finish();
                 }
             });
         mapbutton.setOnClickListener(new View.OnClickListener() {
@@ -90,16 +89,32 @@ public class Hire extends Activity  {
             public void onClick(View v) {
                 Intent i=new Intent(Hire.this,MapsActivity.class);
                 i.putExtra("caller","Hirer");
+                onDestroy();
                 startActivity(i);
-                finish();
+
             }
         });
         }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("text",text);
+        outState.putString("text1",text1);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        text=savedInstanceState.getString("text");
+        text1=savedInstanceState.getString("text1");
+    }
 
     private void post() {
         // 1
         HirePost post = new HirePost();
          text =  topic.getText().toString().trim();
+
          text1 = description.getText().toString().trim();
 
         post.setUsername();
@@ -146,8 +161,6 @@ public class Hire extends Activity  {
             @Override
             public void done(ParseException e) {
                 if(e==null) {
-                    Intent i =new Intent(Hire.this,Welcome.class);
-                    startActivity(i);
                     dialog.dismiss();
                     finish();
                 }

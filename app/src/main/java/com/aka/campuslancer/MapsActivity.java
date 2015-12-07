@@ -59,13 +59,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(location!=null)
         {
             onLocationChanged(location);
+            map.addMarker(new MarkerOptions().position(new LatLng(lat,longi)).title("workplace").draggable(true));
         }
-        locationManager.requestLocationUpdates(bestp,20000,0,this);
+        locationManager.requestLocationUpdates(bestp,2000,0,this);
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Yayy","Yipee");
                     Intent i=new Intent(MapsActivity.this,Hire.class);
                     Bundle b=new Bundle();
                     b.putString("lat",lat+"");
@@ -113,7 +113,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng latLng=new LatLng(lat,longi);
         map.addMarker(new MarkerOptions().position(latLng).title("workplace").draggable(true));
         map.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        map.animateCamera(CameraUpdateFactory.zoomTo(15));
+        map.animateCamera(CameraUpdateFactory.zoomTo(5));
 
     }
 
