@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:name="com.google.android.gms.maps.MapFragment"
-    app:cameraZoom="3"
+    app:cameraZoom="5"
     app:mapType="normal"
     app:uiCompass="false"
     app:uiRotateGestures="true"

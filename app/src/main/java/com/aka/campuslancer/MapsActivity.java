@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -21,15 +22,18 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener,LocationListener {
-    GoogleMap map;
+    GoogleMap googleMap;
     Button done;
     double lat,longi;
     String newString;
+    Location location;
+    LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        done=(Button)findViewById(R.id.butdone);
         Toast.makeText(MapsActivity.this,"Turn on your GPS for getting location",Toast.LENGTH_LONG).show();
 
         if (savedInstanceState == null) {
@@ -44,51 +48,73 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             newString= (String) savedInstanceState.getSerializable("caller");
         }
 
-
-
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        map=mapFragment.getMap();
-        map.setMyLocationEnabled(true);
-        done=(Button)findViewById(R.id.butdone);
-        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String bestp= locationManager.getBestProvider(criteria,true);
-        Location location=locationManager.getLastKnownLocation(bestp);
 
-        if(location!=null)
-        {
-            onLocationChanged(location);
-            map.addMarker(new MarkerOptions().position(new LatLng(lat,longi)).title("workplace").draggable(true));
-        }
-        locationManager.requestLocationUpdates(bestp,2000,0,this);
+        location=locationManager.getLastKnownLocation(bestp);
+
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent i=new Intent(MapsActivity.this,Hire.class);
-                    Bundle b=new Bundle();
-                    b.putString("lat",lat+"");
-                    b.putString("longi",longi+"");
-                    i.putExtras(b);
-                    startActivity(i);
+                if(lat == 0.0 || longi==0.0)
+                {
+                    Toast.makeText(MapsActivity.this,"Please select a location",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Log.d("mapResp","returning "+lat+","+longi);
+                Intent i=new Intent();
+                i.putExtra("lat",""+lat);
+                i.putExtra("longi",""+longi);
+                setResult(1,i);
                 finish();
-
             }
         });
     }
 
-
     @Override
     public void onMapReady (GoogleMap map){
-
+        googleMap = map;
+        Log.d("map","Map is ready");
+        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Log.d("mapClick",latLng.latitude+","+latLng.longitude);
+                Location selected = new Location("Selected");
+                selected.setLatitude(latLng.latitude);
+                selected.setLongitude(latLng.longitude);
+                onLocationChanged(selected);
+            }
+        });
+        setupMap();
     }
 
+    private void setupMap(){
+        googleMap.setMyLocationEnabled(true);
+        if(location!=null)
+        {
+            onLocationChanged(location);
+        }
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        lat=location.getLatitude();
+        longi=location.getLongitude();
+        Log.d("mapLochange",lat+","+longi);
+        LatLng latLng=new LatLng(lat,longi);
+        googleMap.clear();
+        googleMap.addMarker(new MarkerOptions().position(latLng).title("workplace").draggable(true));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+    }
 
     @Override
     public void onMapClick (LatLng latLng){
-        Toast.makeText(getApplicationContext(), "" + latLng.latitude, Toast.LENGTH_LONG).show();
-        Toast.makeText(getApplicationContext(), "" + latLng.longitude, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -105,17 +131,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onStatusChanged(String provider, int status, Bundle extras) {
 
     }
-
-    @Override
-    public void onLocationChanged(Location location) {
-         lat=location.getLatitude();
-         longi=location.getLongitude();
-        LatLng latLng=new LatLng(lat,longi);
-        map.addMarker(new MarkerOptions().position(latLng).title("workplace").draggable(true));
-        map.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        map.animateCamera(CameraUpdateFactory.zoomTo(5));
-
-    }
-
-
 }

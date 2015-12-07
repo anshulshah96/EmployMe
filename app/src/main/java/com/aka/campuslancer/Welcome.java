@@ -40,7 +40,7 @@ public class Welcome extends Activity {
         ParseUser currentUser = ParseUser.getCurrentUser();
 
         // Convert currentUser into String
-        if(!currentUser.isAuthenticated())
+        if(!currentUser.isAuthenticated() || currentUser==null)
         {
             Intent i=new Intent(Welcome.this,LoginSignupActivity.class);
             startActivity(i);

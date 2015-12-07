@@ -88,6 +88,8 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 String unametxt=post.getUsername();
                 String descriptiontxt = post.getDescription();
                 String projectIdtxt = post.getObjectId();
+                boolean locationGiven = post.getLocationSet();
+
                 lat=Double.parseDouble(post.getLat());
                 longi=Double.parseDouble(post.getLongi());
                 topicView.setText(topictxt);
@@ -96,18 +98,23 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 usernameView.setText(unametxt);
                 descriptionView.setText(descriptiontxt);
                 projectId.setText(projectIdtxt);
-                location.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent i=new Intent(WorkActivity.this,MapsActivityBid.class);
-                        Bundle b=new Bundle();
-                        b.putString("lat",lat+"");
-                        b.putString("longi",longi+"");
-                        i.putExtras(b);
-                        startActivity(i);
-                    }
-                });
 
+                if(locationGiven) {
+                    location.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(WorkActivity.this, MapsActivityBid.class);
+                            Bundle b = new Bundle();
+                            b.putString("lat", lat + "");
+                            b.putString("longi", longi + "");
+                            i.putExtras(b);
+                            startActivity(i);
+                        }
+                    });
+                }
+                else{
+                    location.setVisibility(View.INVISIBLE);
+                }
                 return view;
             }
         };

@@ -38,28 +38,11 @@ public class Hire extends Activity  {
         topic = (EditText) findViewById(R.id.TopicField);
         description = (EditText) findViewById(R.id.DescriptionField);
         bid = (EditText) findViewById(R.id.InitialBidField);
+        Spinner s =(Spinner) findViewById(R.id.spinners);
+
         Resources res = getResources();
         this.categories = res.getStringArray(R.array.categories_array);
         category = getString(R.string.category_default);
-
-        if (savedInstanceState == null) {
-            Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                ;
-            } else {
-                lat=extras.getString("lat");
-                longi=extras.getString("longi");
-                mapbutton.setText("Location Set");
-                topic.setText(text);
-                description.setText(text1);
-                bid.setText(bid.getText().toString());
-            }
-        } else {
-            ;
-        }
-
-
-        Spinner s =(Spinner) findViewById(R.id.spinners);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, categories);
         s.setAdapter(adapter);
 
@@ -76,59 +59,75 @@ public class Hire extends Activity  {
             }
         });
 
-
-        postButton = (Button) findViewById(R.id.HirePost);
-
-            postButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    post();
-                }
-            });
         mapbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Hire.this,MapsActivity.class);
-                i.putExtra("caller","Hirer");
-                startActivity(i);
-                finish();
-
+                Intent i = new Intent(Hire.this, MapsActivity.class);
+                startActivityForResult(i, 1);
+                i.putExtra("caller", "Hirer");
             }
         });
-        }
 
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putString("text",text);
-//        outState.putString("text1",text1);
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        text=savedInstanceState.getString("text");
-//        text1=savedInstanceState.getString("text1");
-//    }
+        postButton = (Button) findViewById(R.id.HirePost);
+        postButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dialog.show();
+                post();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1 && resultCode == 1)
+        {
+            mapbutton.setText("Location Saved");
+            lat     = data.getStringExtra("lat");
+            longi   = data.getStringExtra("longi");
+            Log.d("mapResp",lat+","+longi);
+        }
+        else
+        {
+            Log.d("mapResp","Null");
+        }
+    }
 
     private void post() {
-        // 1
         HirePost post = new HirePost();
-         text =  topic.getText().toString().trim();
+        text =  topic.getText().toString().trim();
 
-         text1 = description.getText().toString().trim();
+        text1 = description.getText().toString().trim();
 
         post.setUsername();
         post.setUser(ParseUser.getCurrentUser());
         post.setTopic(text);
         post.setDescription(text1);
-        if(lat==null || longi==null)
+
+        Log.d("mapPost",lat+","+longi);
+
+        if(lat == "" || longi == "" || lat =="0.0" | longi == "0.0")
         {
-         Toast.makeText(Hire.this,"Select Location",Toast.LENGTH_LONG).show();
-            onCreate(null);
-            finish();
+            post.setLat("0.0");
+            post.setLongi("0.0");
+            post.setLocationSet(false);
         }
-        post.setLat(lat);
-        post.setLongi(longi);
+        else {
+            try {
+                post.setLat(lat);
+                post.setLongi(longi);
+                post.setLocationSet(true);
+            } catch (Exception e) {
+                try {
+                    post.setLat("0.0");
+                    post.setLongi("0.0");
+                    post.setLocationSet(false);
+                } catch (Exception e2) {
+                    return;
+                }
+            }
+        }
         post.setCategory(category);
         if(bid.getText().toString()!=""){
         post.setBid(Integer.parseInt(bid.getText().toString()));}
@@ -156,7 +155,6 @@ public class Hire extends Activity  {
         acl.setWriteAccess(ParseUser.getCurrentUser(), true);
         post.setACL(acl);
 
-        // 3
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -171,10 +169,7 @@ public class Hire extends Activity  {
                 }
             }
         });
-
     }
-
-
 }
 
 
