@@ -115,6 +115,7 @@ public class Welcome extends Activity {
                 loggedIn = false;
                 Intent intent = new Intent(getApplicationContext(), LoginSignupActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
