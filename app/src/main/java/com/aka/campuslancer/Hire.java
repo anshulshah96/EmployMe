@@ -89,26 +89,26 @@ public class Hire extends Activity  {
             public void onClick(View v) {
                 Intent i=new Intent(Hire.this,MapsActivity.class);
                 i.putExtra("caller","Hirer");
-                onDestroy();
                 startActivity(i);
+                finish();
 
             }
         });
         }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("text",text);
-        outState.putString("text1",text1);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        text=savedInstanceState.getString("text");
-        text1=savedInstanceState.getString("text1");
-    }
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        outState.putString("text",text);
+//        outState.putString("text1",text1);
+//    }
+//
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        text=savedInstanceState.getString("text");
+//        text1=savedInstanceState.getString("text1");
+//    }
 
     private void post() {
         // 1
