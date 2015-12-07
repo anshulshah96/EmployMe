@@ -63,8 +63,9 @@ public class Hire extends Activity  {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Hire.this, MapsActivity.class);
-                startActivityForResult(i, 1);
+
                 i.putExtra("caller", "Hirer");
+                startActivityForResult(i, 1);
             }
         });
 

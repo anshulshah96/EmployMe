@@ -136,7 +136,7 @@
             android:onClick="onclick"
 
             android:text="@string/HireNewProject"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:background="#F8650D" />
 
@@ -151,8 +151,9 @@
             android:layout_marginLeft="80dip"
             android:layout_marginRight="80dip"
             android:layout_marginTop="20dip"
-
-            android:textSize="18sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:background="#F8650D" />
 

@@ -138,13 +138,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/SelectCategory"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textColor="#222222"
                 />
 
             <Spinner
                 android:id="@+id/categories_spinner"
-                android:layout_width="220dip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
 
@@ -153,7 +153,7 @@
         <Button
             android:id="@+id/browseProjectsButton"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
 
             android:text="@string/BrowseProjects"
             android:textSize="16sp"
