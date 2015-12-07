@@ -18,6 +18,9 @@ public class MapsActivityBid extends FragmentActivity implements OnMapReadyCallb
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_activity_bid);
+        Bundle b=getIntent().getExtras();
+        lat=Double.parseDouble(b.getString("lat"));
+        longi=Double.parseDouble(b.getString("longi"));
         Toast.makeText(MapsActivityBid.this,"Turn on your GPS for getting location",Toast.LENGTH_LONG).show();
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);

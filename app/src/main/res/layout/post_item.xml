@@ -46,15 +46,18 @@
         android:focusableInTouchMode="false"
         android:clickable="false" />
 
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/mob_img"
+    android:layout_marginRight="5dip"
+    android:layout_alignParentRight="true"
+    >
 
     <TextView
         android:id="@+id/post_mobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginRight="5dip"
-        android:layout_alignParentRight="true"
 
         android:text="@string/WorkDescriptionMobileNumber"
         android:textSize="16sp"
@@ -71,8 +74,8 @@
         android:background="@drawable/callme"
         android:layout_toLeftOf="@id/post_mobile"
 
-        android:layout_marginRight="5dip"/>
-
+        />
+</LinearLayout>
     <TextView
         android:id="@+id/post_budget"
         android:layout_width="wrap_content"
@@ -131,9 +134,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/location"
         android:text="My Location"
-        android:alpha="0.5"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/post_mobile"
-        android:layout_alignStart="@+id/post_mobile" />
+        android:alpha="0.8"
+        android:layout_below="@+id/mob_img"
+
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

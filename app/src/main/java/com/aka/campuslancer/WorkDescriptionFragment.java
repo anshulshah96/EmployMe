@@ -105,7 +105,6 @@ public class WorkDescriptionFragment extends Fragment  {
         bidValue = (EditText) view.findViewById(R.id.BidValue);
         bidButton = (Button) view.findViewById(R.id.bidButton);
         navigationTv = (TextView) view.findViewById(R.id.work_fragment_tv_navigation);
-//        location=(Button)view.findViewById(R.id.location);
         topicTv.setText(WorkActivity.topic);
         descriptionTv.setText(WorkActivity.description);
         usernameTv.setText(WorkActivity.username);

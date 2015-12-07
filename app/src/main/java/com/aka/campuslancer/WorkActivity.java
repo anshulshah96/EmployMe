@@ -38,6 +38,7 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
     public static String mobileno;
     public static String projectId;
     public CustomProgressDialogBox dialog;
+    double lat,longi;
     ParseQuery<HirePost> q = HirePost.getQuery();
 
     @Override
@@ -87,8 +88,8 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 String unametxt=post.getUsername();
                 String descriptiontxt = post.getDescription();
                 String projectIdtxt = post.getObjectId();
-//                String nametxt = post.getname();
-
+                lat=Double.parseDouble(post.getLat());
+                longi=Double.parseDouble(post.getLongi());
                 topicView.setText(topictxt);
                 budgetView.setText(bidtxt);
                 enrolView.setText(enrolltxt);
@@ -99,6 +100,10 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                     @Override
                     public void onClick(View v) {
                         Intent i=new Intent(WorkActivity.this,MapsActivityBid.class);
+                        Bundle b=new Bundle();
+                        b.putString("lat",lat+"");
+                        b.putString("longi",longi+"");
+                        i.putExtras(b);
                         startActivity(i);
                     }
                 });
@@ -123,8 +128,6 @@ public class WorkActivity extends Activity implements WorkDescriptionFragment.On
                 topic = ((TextView) (view.findViewById(R.id.post_topic))).getText().toString();
                 mobileno = ((TextView) (view.findViewById(R.id.post_mobile))).getText().toString();
                 projectId = ((TextView) (view.findViewById(R.id.post_project_id))).getText().toString();
-//                Log.i("pid: ",projectId);
-
                 Intent intent = new Intent(WorkActivity.this, PostActivity.class);
                 startActivity(intent);
             }
